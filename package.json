@@ -1,0 +1,16 @@
+{
+  "name": "HaveTheySaid",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "ejs": "latest",
+    "express": "latest",
+    "request": "latest"
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}

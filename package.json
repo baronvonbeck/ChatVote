@@ -1,11 +1,12 @@
 {
-  "name": "HaveTheySaid",
+  "name": "ChatVote",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
     "ejs": "latest",
     "express": "latest",
-    "request": "latest"
+    "request": "latest",
+    "socket.io": "^2.2.0"
   },
   "scripts": {
     "start": "node app.js"

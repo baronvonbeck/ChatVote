@@ -2,16 +2,15 @@ const express = require('express');
 const router = express.Router();
 
 // GET - /*
-router.get('/*', (req, res, next) => {
+router.get('/', (req, res, next) => {
     res.render('index');
 });
 
-router.post('/*', (req, res, next) => {
+router.post('/', (req, res, next) => {
     // res.render('/api/something/params)
 
     //res.json(req.body);
-    console.log(req.body);
-    res.render('index');
+    // res.render('chat');
     //do stuff here
     // redirect (main page wherever)
 });

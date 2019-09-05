@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 
-const API_PATH = "api/";
+const API_PATH = "/api/";
 
 
 router.get(API_PATH + "*", (req, res, next) => {

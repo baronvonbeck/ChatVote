@@ -4,6 +4,10 @@ module.exports = function(server) {
     const router = express.Router();
     const io = require('socket.io')(server);
 
+    router.get("/", (req, res, next) => {
+
+        res.render('chat_search');
+    });
     router.get("/*", (req, res, next) => {
 
         res.render('chat', {chatRoom: req.url});
@@ -11,36 +15,60 @@ module.exports = function(server) {
 
 
     io.on('connection', (socket) => {
-        console.log('New connection');
+        const SOCKET_CHAT_ROOM_NAME         = "change_room_name";
+        const SOCKET_USER_JOINED            = "user_joined";
+        const SOCKET_TYPING                 = "typing";
+        const SOCKET_DONE_TYPING            = "done_typing";
+        const SOCKET_NEW_MESSAGE            = "new_message";
+        const SOCKET_NEW_USERNAME           = "new_username";
 
-        //default username
+        console.log('New connection: ' + socket.handshake.url);
+
+        // default username
         socket.username = "Anonymous";
-        console.log(socket.handshake.url);
+        
 
+        socket.on(SOCKET_CHAT_ROOM_NAME, function(newChatRoomName) {
+            if (socket.room && socket.room != newChatRoomName) {
+                socket.leave(socket.room);
+                socket.room = newChatRoomName;
+                socket.join(newChatRoomName);
 
-        socket.on('chat', function(chat) {
-            if (socket.room)
-                socket.leave(socket.chat);
+                io.to(socket.room).emit(SOCKET_USER_JOINED, 
+                    {username : socket.username});
+            }
+            else if (!socket.room) {
+                socket.room = newChatRoomName;
+                socket.join(newChatRoomName);
 
-            socket.room = chat;
-            socket.join(chat);
+                io.to(socket.room).emit(SOCKET_USER_JOINED, 
+                    {username : socket.username});
+            }
         });
 
-        //listen on change_username
-        socket.on('change_username', (data) => {
+        // listen on change_username, to change current username
+        socket.on(SOCKET_NEW_USERNAME, (data) => {
             socket.username = data.username;
         });
 
-        //listen on new_message
-        socket.on('new_message', (data) => {
-            //broadcast the new message
-            //io.sockets.emit('new_message', {message : data.message, username : socket.username});
-            io.to(socket.room).emit('new_message', {message : data.message, username : socket.username});
+        // listen on new_message to emit new message to all users
+        socket.on(SOCKET_NEW_MESSAGE, (data) => {
+            console.log(socket.room);
+            io.to(socket.room).emit(SOCKET_NEW_MESSAGE, 
+                {message : data.message, username : socket.username});
         });
 
-        //listen on typing
-        socket.on('typing', (data) => {
-            socket.broadcast.to(socket.room).emit('typing', {username : socket.username});
+        // listen on typing, to emit User is Typing to all other users
+        socket.on(SOCKET_TYPING, (data) => {
+            console.log(socket.username);
+            socket.broadcast.to(socket.room).emit(SOCKET_TYPING, 
+                {username : socket.username});
+        });
+
+        // listen on typing, to emit User is Typing to all other suers
+        socket.on(SOCKET_DONE_TYPING, (data) => {
+            socket.broadcast.to(socket.room).emit(SOCKET_DONE_TYPING, 
+                {username : socket.username});
         });
     });
 

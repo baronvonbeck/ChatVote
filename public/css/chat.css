@@ -21,23 +21,23 @@ h1 {
     margin: 0px;
 }
 
-div#change_username, section#input_zone {
+div#change_username_id, section#input_zone_id {
     border: 5px outset #8258FA;
 }
 
-div#change_username {
+div#change_username_id {
     height: 3%;
     display: inline-block;
     background-color: #BCA9F5;
 }
 
-section#chatroom {
+section#chatroom_container_id {
     border: 5px inset #8258FA;
     height: 85%;
     overflow: auto;
 }
 
-section#input_zone {
+section#input_zone_id {
     height: 7%;
     text-align: center;
     background-color: #BCA9F5;
@@ -51,11 +51,11 @@ section#input_zone {
     transform: translateY(-50%);
 }
 
-input#username {
+input#username_text_id {
     font-family: 'Comfortaa', sans-serif;
 }
 
-input#message {
+input#message_text_id {
     display: inline-block;
     width: 88%;
     height: 70%;
@@ -63,7 +63,7 @@ input#message {
     font-size: 2vh;
 }
 
-button#send_message {
+button#message_send_button_id {
     display: inline-block;
     height: 70%;
     width: 10%;

@@ -14,23 +14,24 @@
         </header>
 
         <section>
-            <div id="change_username">
-            <input id="username" type="text" />
-            <button id="send_username" type="button">Change username</button>
+            <div id="change_username_id">
+            <input id="username_text_id" type="text" />
+            <button id="username_send_button_id" type="button">Change username</button>
             </div>
         </section>
 
-        <section id="chatroom">
+        <section id="chatroom_container_id">
 
-            <section id="feedback"></section>
+            <section id="feedback_id"></section>
+            <section id="chatroom_id"></section>
+        </section>
+
+        <section id="input_zone_id"> 
+            <input id="message_text_id" class="vertical-align" type="text" />
+            <button id="message_send_button_id" class="vertical-align" type="button">Send</button>
         </section>
 
 
-
-        <section id="input_zone"> 
-            <input id="message" class="vertical-align" type="text" />
-            <button id="send_message" class="vertical-align" type="button">Send</button>
-        </section>
 
 
         <script>
@@ -43,6 +44,8 @@
         </script>
 
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-        <script src="/js/chat.js"></script>
+        <script src="/js/chat/chat_constants.js"></script>
+        <script src="/js/chat/chat_handlers.js"></script>
+        <script src="/js/chat/chat.js"></script>
     </body>
 </html>

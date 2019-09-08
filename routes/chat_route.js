@@ -34,14 +34,18 @@ module.exports = function(server) {
                 socket.room = newChatRoomName;
                 socket.join(newChatRoomName);
 
-                io.to(socket.room).emit(SOCKET_USER_JOINED, 
+                socket.emit(SOCKET_USER_JOINED, 
+                    {username : socket.username + " (You)"});
+                socket.broadcast.to(socket.room).emit(SOCKET_USER_JOINED, 
                     {username : socket.username});
             }
             else if (!socket.room) {
                 socket.room = newChatRoomName;
                 socket.join(newChatRoomName);
 
-                io.to(socket.room).emit(SOCKET_USER_JOINED, 
+                socket.emit(SOCKET_USER_JOINED, 
+                    {username : socket.username + " (You)"});
+                socket.broadcast.to(socket.room).emit(SOCKET_USER_JOINED, 
                     {username : socket.username});
             }
         });
@@ -53,19 +57,19 @@ module.exports = function(server) {
 
         // listen on new_message to emit new message to all users
         socket.on(SOCKET_NEW_MESSAGE, (data) => {
-            console.log(socket.room);
-            io.to(socket.room).emit(SOCKET_NEW_MESSAGE, 
+            socket.emit(SOCKET_NEW_MESSAGE, 
+                {message : data.message, username : socket.username + " (You)"});
+            socket.broadcast.to(socket.room).emit(SOCKET_NEW_MESSAGE, 
                 {message : data.message, username : socket.username});
         });
 
         // listen on typing, to emit User is Typing to all other users
         socket.on(SOCKET_TYPING, (data) => {
-            console.log(socket.username);
             socket.broadcast.to(socket.room).emit(SOCKET_TYPING, 
                 {username : socket.username});
         });
 
-        // listen on typing, to emit User is Typing to all other suers
+        // listen on typing, to emit User is Typing to all other users
         socket.on(SOCKET_DONE_TYPING, (data) => {
             socket.broadcast.to(socket.room).emit(SOCKET_DONE_TYPING, 
                 {username : socket.username});

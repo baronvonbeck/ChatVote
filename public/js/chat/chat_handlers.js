@@ -3,7 +3,7 @@
 
 
 var CHAT_HANDLERS = new function() {
-    this.current_username = "Anonymous";
+    this.currentUsername = "Anonymous";
     this.socket = null;
     this.typingTimer = null;
     this.isTyping = false;
@@ -16,7 +16,13 @@ var CHAT_HANDLERS = new function() {
 
         // Connect to a specific room
         CHAT_HANDLERS.socket.on("connect", function() {
-            CHAT_HANDLERS.socket.emit(CHAT_CONSTANTS.SOCKET_CHAT_ROOM_NAME, chatRoom);
+            CHAT_HANDLERS.currentUsername = CHAT_HANDLERS.getCookie(CHAT_CONSTANTS.COOKIE_USERNAME);
+            CHAT_HANDLERS.currentUsername = (CHAT_HANDLERS.currentUsername.length > 0 ? 
+                CHAT_HANDLERS.currentUsername : "Anonymous");
+
+            CHAT_HANDLERS.socketEmitUsernameChange(CHAT_HANDLERS.currentUsername);
+
+            CHAT_HANDLERS.socketEmitConnectToRoom();
         });
     
         // Listen on new user connected to room
@@ -40,7 +46,10 @@ var CHAT_HANDLERS = new function() {
         // Emit a username change
         CHAT_CONSTANTS.USERNAME_SEND_BUTTON_EL.addEventListener(
             "click", function() {
-                CHAT_HANDLERS.socketEmitUsernameChange();
+                CHAT_HANDLERS.socketEmitUsernameChange(
+                    CHAT_HANDLERS.formatString(
+                        CHAT_CONSTANTS.USERNAME_EL.value));
+                CHAT_CONSTANTS.USERNAME_EL.value = "";
             }, false);
     
 
@@ -61,6 +70,11 @@ var CHAT_HANDLERS = new function() {
     };
 
 
+    // emit a connection to a new room
+    this.socketEmitConnectToRoom = function() {
+        CHAT_HANDLERS.socket.emit(CHAT_CONSTANTS.SOCKET_CHAT_ROOM_NAME, chatRoom);
+    };
+
 
     // emit a new message to all other users in chat room
     this.socketEmitMessage = function() {
@@ -75,11 +89,14 @@ var CHAT_HANDLERS = new function() {
 
 
     // change current username
-    this.socketEmitUsernameChange = function() {
-        this.current_username = CHAT_CONSTANTS.USERNAME_EL.value;
-        CHAT_HANDLERS.socket.emit(CHAT_CONSTANTS.SOCKET_NEW_USERNAME, 
-            {username : CHAT_CONSTANTS.USERNAME_EL.value});
-        CHAT_CONSTANTS.USERNAME_EL.value = "";
+    this.socketEmitUsernameChange = function(newUsername) {
+        if (newUsername.length > 0) {
+            CHAT_HANDLERS.currentUsername = newUsername;
+            CHAT_HANDLERS.socket.emit(CHAT_CONSTANTS.SOCKET_NEW_USERNAME, 
+                {username : newUsername});
+
+            CHAT_HANDLERS.setCookie(CHAT_CONSTANTS.COOKIE_USERNAME, newUsername);
+        }
     };
 
 
@@ -115,7 +132,7 @@ var CHAT_HANDLERS = new function() {
     this.addNewUserConnectedToRoom = function(data) {
         CHAT_CONSTANTS.CHATROOM_EL.innerHTML += 
             "<p class='message'>----New user connected: " + data.username + "</p>";
-    }
+    };
 
 
     // add an incoming new message to the chatroom
@@ -135,5 +152,35 @@ var CHAT_HANDLERS = new function() {
     // add a user to the currently typing list
     this.removeUserFromCurrentlyTypingList = function(data) {
         CHAT_CONSTANTS.FEEDBACK_EL.innerHTML = '';
+    };
+
+
+    this.setCookie = function(cname, cvalue) {  // exdays) {
+        // var d = new Date();
+        // d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        // var expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";"; // + expires + ";path=/";
+    };
+
+    this.getCookie = function(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i < ca.length; i ++) {
+            var c = ca[i];
+
+            while (c.charAt(0) == ' ')
+                c = c.substring(1);
+
+        if (c.indexOf(name) == 0)
+            return c.substring(name.length, c.length);
+        }
+        return "";
+    };
+
+
+    // formats a string to remove all single and double quotes ['"] and slashes
+    this.formatString = function(text) {
+        return text.trim().replace(/['"\\\/]+/g, '');
     };
 }

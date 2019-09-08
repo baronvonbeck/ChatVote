@@ -23,6 +23,9 @@ const CHAT_CONSTANTS = new function() {
     this.SOCKET_NEW_MESSAGE         = "new_message";
     this.SOCKET_NEW_USERNAME        = "new_username";
 
+    
+    this.COOKIE_USERNAME            = "chat_cookie_username_chatvote";
+
 
     this.DONE_TYPING_INTERVAL       = 3000; // time in ms, 3 seconds
 };

@@ -24,7 +24,8 @@ var CHAT_HANDLERS = new function() {
 
             CHAT_HANDLERS.socketEmitConnectToRoom();
         });
-    
+
+
         // Listen on new user connected to room
         CHAT_HANDLERS.socket.on(CHAT_CONSTANTS.SOCKET_USER_JOINED, (data) => {
             CHAT_HANDLERS.addNewUserConnectedToRoom(data);
@@ -36,37 +37,50 @@ var CHAT_HANDLERS = new function() {
             "click", function() {
                 CHAT_HANDLERS.socketEmitMessage();
             }, false);
-    
+        // Emit message on enter on text field
+        CHAT_CONSTANTS.MESSAGE_TEXT_EL.addEventListener(
+            "keydown", function(e) {
+                if (e.keyCode == 13) {
+                    CHAT_HANDLERS.socketEmitMessage();
+                }
+            }, false);
         // Listen on new_message
         CHAT_HANDLERS.socket.on(CHAT_CONSTANTS.SOCKET_NEW_MESSAGE, (data) => {
             CHAT_HANDLERS.addMessageToChatroom(data);
         });
-    
-
-        // Emit a username change
-        CHAT_CONSTANTS.USERNAME_SEND_BUTTON_EL.addEventListener(
-            "click", function() {
-                CHAT_HANDLERS.socketEmitUsernameChange(
-                    CHAT_HANDLERS.formatString(
-                        CHAT_CONSTANTS.USERNAME_EL.value));
-                CHAT_CONSTANTS.USERNAME_EL.value = "";
-            }, false);
-    
-
         // Emit a User is Typing message
-        CHAT_CONSTANTS.MESSAGE_TEXT_EL.addEventListener("keyup", () => {
-            CHAT_HANDLERS.socketEmitTyping();
+        CHAT_CONSTANTS.MESSAGE_TEXT_EL.addEventListener("keyup", (e) => {
+            if (e.keyCode != 13)
+                CHAT_HANDLERS.socketEmitTyping();
         }, false);
-    
         // Listen on typing
         CHAT_HANDLERS.socket.on(CHAT_CONSTANTS.SOCKET_TYPING, (data) => {
             CHAT_HANDLERS.addUserToCurrentlyTypingList(data);
         });
-
         // Listen on done typing
         CHAT_HANDLERS.socket.on(CHAT_CONSTANTS.SOCKET_DONE_TYPING, (data) => {
             CHAT_HANDLERS.removeUserFromCurrentlyTypingList(data);
         });
+
+
+        // Emit a username change on click
+        CHAT_CONSTANTS.USERNAME_SEND_BUTTON_EL.addEventListener(
+            "click", function() {
+                CHAT_HANDLERS.socketEmitUsernameChange(
+                    CHAT_HANDLERS.formatString(
+                        CHAT_CONSTANTS.USERNAME_TEXT_EL.value));
+                CHAT_CONSTANTS.USERNAME_TEXT_EL.value = "";
+            }, false);
+        // Emit a username change on enter on text field
+        CHAT_CONSTANTS.USERNAME_TEXT_EL.addEventListener(
+            "keydown", function(e) {
+                if (e.keyCode == 13) {
+                    CHAT_HANDLERS.socketEmitUsernameChange(
+                        CHAT_HANDLERS.formatString(
+                            CHAT_CONSTANTS.USERNAME_TEXT_EL.value));
+                    CHAT_CONSTANTS.USERNAME_TEXT_EL.value = "";
+                }
+            }, false);
     };
 
 
@@ -85,6 +99,8 @@ var CHAT_HANDLERS = new function() {
 
         clearTimeout(CHAT_HANDLERS.typingTimer);  // clear previous timer
         CHAT_HANDLERS.socketEmitDoneTyping();
+
+        CHAT_CONSTANTS.MESSAGE_TEXT_EL.focus();
     };
 
 

@@ -1,4 +1,4 @@
-// storage_constants.js - holds constants that will not change
+// chat_constants.js - holds constants that will not change
 'use strict';
 
 
@@ -12,7 +12,7 @@ const CHAT_CONSTANTS = new function() {
     this.MESSAGE_TEXT_EL            = document.getElementById("message_text_id");
     this.MESSAGE_SEND_BUTTON_EL     = document.getElementById("message_send_button_id");
     
-    this.USERNAME_TEXT_EL                = document.getElementById("username_text_id");
+    this.USERNAME_TEXT_EL           = document.getElementById("username_text_id");
     this.USERNAME_SEND_BUTTON_EL    = document.getElementById("username_send_button_id");
 
 

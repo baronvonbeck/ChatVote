@@ -6,6 +6,6 @@ window.onload = () => {
     console.log(chatRoom);
         //addAllEventListeners();
 
-    CHAT_HANDLERS.addSocketEventListeners();
+    CHAT_HANDLERS.addAllEventListeners();
 }
 

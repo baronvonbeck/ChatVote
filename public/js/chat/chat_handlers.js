@@ -9,7 +9,7 @@ var CHAT_HANDLERS = new function() {
     this.isTyping = false;
 
 
-    this.addSocketEventListeners = function() {
+    this.addAllEventListeners = function() {
         // make connection
         CHAT_HANDLERS.socket = io.connect({
             transports: ['websocket'], upgrade: false});

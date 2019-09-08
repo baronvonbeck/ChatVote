@@ -11,7 +11,8 @@ var CHAT_HANDLERS = new function() {
 
     this.addSocketEventListeners = function() {
         // make connection
-        CHAT_HANDLERS.socket = io.connect();
+        CHAT_HANDLERS.socket = io.connect({
+            transports: ['websocket'], upgrade: false});
 
 
         // Connect to a specific room
@@ -95,11 +96,10 @@ var CHAT_HANDLERS = new function() {
         CHAT_HANDLERS.socket.emit(CHAT_CONSTANTS.SOCKET_NEW_MESSAGE, 
             {message : CHAT_CONSTANTS.MESSAGE_TEXT_EL.value});
 
-        CHAT_CONSTANTS.MESSAGE_TEXT_EL.value = "";
-
         clearTimeout(CHAT_HANDLERS.typingTimer);  // clear previous timer
         CHAT_HANDLERS.socketEmitDoneTyping();
 
+        CHAT_CONSTANTS.MESSAGE_TEXT_EL.value = "";
         CHAT_CONSTANTS.MESSAGE_TEXT_EL.focus();
     };
 

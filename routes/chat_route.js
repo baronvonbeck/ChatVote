@@ -2,7 +2,7 @@
 module.exports = function(server) {
     const express = require('express');
     const router = express.Router();
-    const io = require('socket.io')(server);
+    const io = require('socket.io')(server).set('transports', ['websocket']);
 
     router.get("/", (req, res, next) => {
         res.render('chat_search');

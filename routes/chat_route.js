@@ -5,11 +5,9 @@ module.exports = function(server) {
     const io = require('socket.io')(server);
 
     router.get("/", (req, res, next) => {
-
         res.render('chat_search');
     });
     router.get("/*", (req, res, next) => {
-
         res.render('chat', {chatRoom: req.url});
     });
 

@@ -93,14 +93,16 @@ var CHAT_HANDLERS = new function() {
 
     // emit a new message to all other users in chat room
     this.socketEmitMessage = function() {
-        CHAT_HANDLERS.socket.emit(CHAT_CONSTANTS.SOCKET_NEW_MESSAGE, 
-            {message : CHAT_CONSTANTS.MESSAGE_TEXT_EL.value});
+        if (CHAT_CONSTANTS.MESSAGE_TEXT_EL.value.trim().length > 0) {
+            CHAT_HANDLERS.socket.emit(CHAT_CONSTANTS.SOCKET_NEW_MESSAGE, 
+                {message : CHAT_CONSTANTS.MESSAGE_TEXT_EL.value});
 
-        clearTimeout(CHAT_HANDLERS.typingTimer);  // clear previous timer
-        CHAT_HANDLERS.socketEmitDoneTyping();
+            clearTimeout(CHAT_HANDLERS.typingTimer);  // clear previous timer
+            CHAT_HANDLERS.socketEmitDoneTyping();
 
-        CHAT_CONSTANTS.MESSAGE_TEXT_EL.value = "";
-        CHAT_CONSTANTS.MESSAGE_TEXT_EL.focus();
+            CHAT_CONSTANTS.MESSAGE_TEXT_EL.value = "";
+            CHAT_CONSTANTS.MESSAGE_TEXT_EL.focus();
+        }
     };
 
 

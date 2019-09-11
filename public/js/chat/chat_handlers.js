@@ -163,7 +163,8 @@ var CHAT_HANDLERS = new function() {
 
     // add a user to the currently typing list
     this.addUserToCurrentlyTypingList = function(data) {
-        CHAT_CONSTANTS.FEEDBACK_EL.innerHTML += "<p><i>" + data.username + " is typing a message..." + "</i></p>";
+        CHAT_CONSTANTS.FEEDBACK_EL.innerHTML += "<p><i>" + data.username + 
+            " is typing a message..." + "</i></p>";
     };
 
 

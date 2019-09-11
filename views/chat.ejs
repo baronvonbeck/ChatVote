@@ -13,23 +13,23 @@
             <h1>Chat</h1>
         </header>
 
-        <section>
+        <div>
             <div id="change_username_id">
                 <input id="username_text_id" type="text"/>
                 <button id="username_send_button_id" type="button">Change username</button>
             </div>
-        </section>
+        </div>
 
-        <section id="chatroom_container_id">
+        <div id="chatroom_container_id">
 
-            <section id="feedback_id"></section>
-            <section id="chatroom_id"></section>
-        </section>
+            <div id="feedback_id"></div>
+            <div id="chatroom_id"></div>
+        </div>
 
-        <section id="input_zone_id"> 
+        <div id="input_zone_id"> 
             <input id="message_text_id" class="vertical-align" type="text"/>
             <button id="message_send_button_id" class="vertical-align" type="button">Send</button>
-        </section>
+        </div>
 
 
 
@@ -43,7 +43,7 @@
             var chatRoom = JSON.parse(htmlDecode("<%= JSON.stringify(chatRoom) %>"));
         </script>
 
-        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="/js/other/jquery.min.js"></script>
         <script src="/js/chat/chat_constants.js"></script>
         <script src="/js/chat/chat_handlers.js"></script>
         <script src="/js/chat/chat.js"></script>

@@ -1,17 +1,13 @@
 
-* {
-    box-sizing: border-box;
-}
+
 
 html {
     height: 100%;
 }
-
 body {
     margin: 0px;
     height: 100%;
 }
-
 header {
     text-align: center;
 }
@@ -21,54 +17,49 @@ h1 {
     margin: 0px;
 }
 
-#change_username_id, #input_zone_id {
-    border: 5px outset #8258FA;
+
+.send_text_container {
+    width: 100%;
+    padding: 5px 5px 5px 5px;
+}
+.send_text_container p {
+    margin: auto;
+    white-space: nowrap;
+}
+.send_text_input {
+    width: auto;
+}
+.send_button {
+    height: 100%;
+    width: auto;
+    white-space: nowrap;
+    margin-left: 5px;
+    cursor: pointer;
 }
 
-#change_username_id {
-    height: 3%;
-    display: inline-block;
+
+/* Username display and change */
+#username_change_container_id {
+    display: inline-flex;
+    height: 35px;
+}
+#username_change_id {
+    display: flex;
     background-color: #BCA9F5;
+    flex-wrap: nowrap;
 }
-
-#chatroom_container_id {
-    border: 5px inset #8258FA;
-    height: 85%;
-    overflow: auto;
-}
-
-#input_zone_id {
-    height: 7%;
-    text-align: center;
-    background-color: #BCA9F5;
-}
-
-.vertical-align {
-    position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-
 #username_text_id {
     font-family: 'Comfortaa', sans-serif;
 }
 
-#message_text_id {
-    display: inline-block;
-    width: 88%;
-    height: 70%;
-    font-family: 'Comfortaa', sans-serif;
-    font-size: 2vh;
-}
 
-#message_send_button_id {
-    display: inline-block;
-    height: 70%;
-    width: 10%;
-}
 
+/* Chatroom and messages */
+#chatroom_container_id {
+    border: 5px inset #8258FA;
+    height: 75%;
+    overflow: auto;
+}
 .message {
     margin: 0px;
     width: 100%;
@@ -77,11 +68,40 @@ h1 {
     font-family: 'Comfortaa', sans-serif;
     padding: 1vh;
 }
-
 .message:nth-child(even) {
     background-color: #81DAF5;
 }
-
 .message:nth-child(odd) {
     background-color: #81BEF7;
+}
+
+
+
+/* Typing messages */
+#message_send_container_id {
+    display: inline-flex;
+    width: 100%;
+    height: 100px;
+}
+#message_send_id {
+    height: 100%;
+    text-align: center;
+    background-color: #BCA9F5;
+    display: flex;
+    flex-grow: 1;
+}
+#message_text_id {
+    display: flex;
+    flex: 1;
+    width: auto;
+    height: auto;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+
+
+/* Feedback, when other users are typing */
+#feedback_container_id {
+    height: 40px;
+    background-color: #BCA9F5;
 }

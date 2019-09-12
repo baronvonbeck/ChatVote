@@ -176,10 +176,9 @@ var CHAT_HANDLERS = new function() {
     };
 
 
-    // add a user to the currently typing list
+    // removes a user to the currently typing list
     this.removeUserFromCurrentlyTypingList = function(username) {
-        CHAT_HANDLERS.currentlyTypingUsers = 
-            CHAT_HANDLERS.currentlyTypingUsers.filter(e => e != username);
+        CHAT_HANDLERS.removeUserFromCurrentlyTypingArray(username, true);
 
         CHAT_CONSTANTS.FEEDBACK_TEXT_EL.innerHTML = 
             CHAT_HANDLERS.getUsersCurrentlyTypingText();
@@ -243,6 +242,18 @@ var CHAT_HANDLERS = new function() {
         }
         return "";
     };
+
+
+    // removes occurrences from an array. if firstOnly is true, 
+    // then only remove first occurrence, otherwise remove all
+    this.removeUserFromCurrentlyTypingArray = function(username, firstOnly) {
+        for (var i = CHAT_HANDLERS.currentlyTypingUsers.length - 1; i >= 0; i --) {
+            if (CHAT_HANDLERS.currentlyTypingUsers[i] === username) {
+                CHAT_HANDLERS.currentlyTypingUsers.splice(i, 1);
+                if (firstOnly) break;
+            }
+        }
+    }
 
 
     // formats a string to remove all single and double quotes ['"] and slashes

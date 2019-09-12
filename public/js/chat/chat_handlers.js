@@ -58,7 +58,7 @@ var CHAT_HANDLERS = new function() {
         }, false);
         // Listen on typing
         CHAT_HANDLERS.socket.on(CHAT_CONSTANTS.SOCKET_TYPING, (data) => {
-            CHAT_HANDLERS.addUserToCurrentlyTypingList(data);
+            CHAT_HANDLERS.addUserToCurrentlyTypingList(data.username);
         });
         // Listen on done typing
         CHAT_HANDLERS.socket.on(CHAT_CONSTANTS.SOCKET_DONE_TYPING, (data) => {
@@ -159,22 +159,24 @@ var CHAT_HANDLERS = new function() {
 
     // add an incoming new message to the chatroom
     this.addMessageToChatroom = function(data) {
-        CHAT_CONSTANTS.FEEDBACK_EL.innerHTML = '';
+        CHAT_HANDLERS.removeUserFromCurrentlyTypingList(data.username);
         CHAT_CONSTANTS.CHATROOM_EL.innerHTML += 
             "<p class='message'>" + data.username + ": " + data.message + "</p>";
     };
 
 
     // add a user to the currently typing list
-    this.addUserToCurrentlyTypingList = function(data) {
-        CHAT_CONSTANTS.FEEDBACK_EL.innerHTML += "<p><i>" + data.username + 
-            " is typing a message..." + "</i></p>";
+    this.addUserToCurrentlyTypingList = function(username) {
+        CHAT_CONSTANTS.FEEDBACK_TEXT_EL.innerHTML = "<i>" + username + 
+            " is typing a message..." + "</i>";
+        CHAT_CONSTANTS.FEEDBACK_TEXT_EL.style.visibility = "visible";
     };
 
 
     // add a user to the currently typing list
-    this.removeUserFromCurrentlyTypingList = function(data) {
-        CHAT_CONSTANTS.FEEDBACK_EL.innerHTML = '';
+    this.removeUserFromCurrentlyTypingList = function(username) {
+        CHAT_CONSTANTS.FEEDBACK_TEXT_EL.innerHTML = "";
+        CHAT_CONSTANTS.FEEDBACK_TEXT_EL.style.visibility = "hidden";
     };
 
 

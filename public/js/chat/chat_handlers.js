@@ -7,6 +7,7 @@ var CHAT_HANDLERS = new function() {
     this.socket = null;
     this.typingTimer = null;
     this.isTyping = false;
+    this.currentlyTypingUsers = [];
 
 
     this.addAllEventListeners = function() {
@@ -160,24 +161,64 @@ var CHAT_HANDLERS = new function() {
     // add an incoming new message to the chatroom
     this.addMessageToChatroom = function(data) {
         CHAT_HANDLERS.removeUserFromCurrentlyTypingList(data.username);
-        CHAT_CONSTANTS.CHATROOM_EL.innerHTML += 
-            "<p class='message'>" + data.username + ": " + data.message + "</p>";
+        CHAT_CONSTANTS.CHATROOM_EL.innerHTML += "<p class='message'>" + 
+            data.username + ": " + data.message + "</p>";
     };
 
 
     // add a user to the currently typing list
     this.addUserToCurrentlyTypingList = function(username) {
-        CHAT_CONSTANTS.FEEDBACK_TEXT_EL.innerHTML = "<i>" + username + 
-            " is typing a message..." + "</i>";
+        CHAT_HANDLERS.currentlyTypingUsers.push(username);
+
+        CHAT_CONSTANTS.FEEDBACK_TEXT_EL.innerHTML = 
+            CHAT_HANDLERS.getUsersCurrentlyTypingText();
         CHAT_CONSTANTS.FEEDBACK_TEXT_EL.style.visibility = "visible";
     };
 
 
     // add a user to the currently typing list
     this.removeUserFromCurrentlyTypingList = function(username) {
-        CHAT_CONSTANTS.FEEDBACK_TEXT_EL.innerHTML = "";
-        CHAT_CONSTANTS.FEEDBACK_TEXT_EL.style.visibility = "hidden";
+        CHAT_HANDLERS.currentlyTypingUsers = 
+            CHAT_HANDLERS.currentlyTypingUsers.filter(e => e !== username);
+
+        CHAT_CONSTANTS.FEEDBACK_TEXT_EL.innerHTML = 
+            CHAT_HANDLERS.getUsersCurrentlyTypingText();
+        if (CHAT_HANDLERS.currentlyTypingUsers.length == 0)
+            CHAT_CONSTANTS.FEEDBACK_TEXT_EL.style.visibility = "hidden";
     };
+
+
+    // gets text representing the users currently typing
+    this.getUsersCurrentlyTypingText = function() {
+        var numTyping = CHAT_HANDLERS.currentlyTypingUsers.length;
+        var usersTyping = "";
+
+        if (numTyping == 1) {
+            usersTyping = CHAT_HANDLERS.currentlyTypingUsers[0] + 
+                " is typing...";
+        }
+        else if (numTyping == 2) {
+            usersTyping = CHAT_HANDLERS.currentlyTypingUsers[0] + " and " + 
+                CHAT_HANDLERS.currentlyTypingUsers[1] +
+                " are currently typing...";
+        }
+        else if (numTyping > 2 && numTyping < 
+            CHAT_CONSTANTS.MAX_INDIVIDUAL_USERS) {
+            
+            var temp = "";
+            for (var i = 0; i < numTyping - 1; i ++) {
+                temp += CHAT_HANDLERS.currentlyTypingUsers[i] + ", ";
+            }
+            temp += "and " + CHAT_HANDLERS.currentlyTypingUsers[numTyping - 1];
+
+            usersTyping = temp + " are currently typing...";
+        }
+        else {
+            usersTyping = numTyping + " users are currently typing...";
+        }
+
+        return "<i>" + usersTyping + "</i>";
+    }
 
 
     this.setCookie = function(cname, cvalue) {  // exdays) {

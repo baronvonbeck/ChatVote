@@ -28,4 +28,5 @@ const CHAT_CONSTANTS = new function() {
 
 
     this.DONE_TYPING_INTERVAL       = 1500; // time in ms, 3 seconds
+    this.MAX_INDIVIDUAL_USERS       = 4;
 };

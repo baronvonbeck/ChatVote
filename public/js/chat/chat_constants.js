@@ -27,6 +27,6 @@ const CHAT_CONSTANTS = new function() {
     this.COOKIE_USERNAME            = "chat_cookie_username_chatvote";
 
 
-    this.DONE_TYPING_INTERVAL       = 1500; // time in ms, 3 seconds
+    this.DONE_TYPING_INTERVAL       = 1500; // time in ms, 1.5 seconds
     this.MAX_INDIVIDUAL_USERS       = 4;
 };

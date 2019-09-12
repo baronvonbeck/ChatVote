@@ -63,7 +63,7 @@ var CHAT_HANDLERS = new function() {
         });
         // Listen on done typing
         CHAT_HANDLERS.socket.on(CHAT_CONSTANTS.SOCKET_DONE_TYPING, (data) => {
-            CHAT_HANDLERS.removeUserFromCurrentlyTypingList(data);
+            CHAT_HANDLERS.removeUserFromCurrentlyTypingList(data.username);
         });
 
 
@@ -179,7 +179,7 @@ var CHAT_HANDLERS = new function() {
     // add a user to the currently typing list
     this.removeUserFromCurrentlyTypingList = function(username) {
         CHAT_HANDLERS.currentlyTypingUsers = 
-            CHAT_HANDLERS.currentlyTypingUsers.filter(e => e !== username);
+            CHAT_HANDLERS.currentlyTypingUsers.filter(e => e != username);
 
         CHAT_CONSTANTS.FEEDBACK_TEXT_EL.innerHTML = 
             CHAT_HANDLERS.getUsersCurrentlyTypingText();

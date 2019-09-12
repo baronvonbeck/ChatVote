@@ -41,7 +41,9 @@ var CHAT_HANDLERS = new function() {
         // Emit message on enter on text field
         CHAT_CONSTANTS.MESSAGE_TEXT_EL.addEventListener(
             "keydown", function(e) {
-                if (e.keyCode == 13) {
+                if (e.keyCode == 13 && !e.shiftKey) {
+                    e.preventDefault();
+                    e.stopPropagation();
                     CHAT_HANDLERS.socketEmitMessage();
                 }
             }, false);
@@ -75,7 +77,9 @@ var CHAT_HANDLERS = new function() {
         // Emit a username change on enter on text field
         CHAT_CONSTANTS.USERNAME_TEXT_EL.addEventListener(
             "keydown", function(e) {
-                if (e.keyCode == 13) {
+                if (e.keyCode == 13 && !e.shiftKey) {
+                    e.preventDefault();
+                    e.stopPropagation();
                     CHAT_HANDLERS.socketEmitUsernameChange(
                         CHAT_HANDLERS.formatString(
                             CHAT_CONSTANTS.USERNAME_TEXT_EL.value));

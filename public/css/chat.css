@@ -105,6 +105,7 @@ h1 {
     width: auto;
     height: auto;
     font-family: 'Comfortaa', sans-serif;
+    resize: none;
 }
 
 

@@ -56,20 +56,36 @@ h1 {
 
 /* Chatroom and messages */
 #chatroom_container_id {
-    height: 75%;
+    height: auto;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
     background-color: #BCA9F5;
     overflow: auto;
 }
-.message {
-    margin: 0px;
+#chatroom_container_id .message {
     width: 100%;
-    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
     font-family: 'Comfortaa', sans-serif;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    overflow-x: clip
+}
+
+
+/* Fixed bottom container */
+#fixed_bottom_footer_id {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 15vh;
 }
 
 
 /* Typing messages */
-#message_send_container_id {
+#fixed_bottom_footer_id #message_send_container_id {
     display: inline-flex;
     width: 100%;
     height: 100px;
@@ -92,7 +108,7 @@ h1 {
 
 
 /* Feedback, when other users are typing */
-#feedback_container_id {
+#fixed_bottom_footer_id #feedback_container_id {
     height: 40px;
     background-color: #BCA9F5;
 }

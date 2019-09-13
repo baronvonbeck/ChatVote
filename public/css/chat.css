@@ -67,12 +67,27 @@ h1 {
     background-color: #BCA9F5;
     overflow: auto;
 }
-#chatroom_container_id p.message {
-    margin: 10px;
+#chatroom_container_id p.message_info {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 0px;
     font-family: 'Comfortaa', sans-serif;
     white-space: pre-wrap;
     overflow-wrap: break-word;
-    overflow-x: clip
+    overflow-x: clip;
+    color: #505050;
+    font-weight: bold;
+}
+#chatroom_container_id p.message {
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-family: 'Comfortaa', sans-serif;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    overflow-x: clip;
 }
 
 

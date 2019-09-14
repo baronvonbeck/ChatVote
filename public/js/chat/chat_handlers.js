@@ -202,7 +202,7 @@ var CHAT_HANDLERS = new function() {
         if (isScrolledToBottom)
             scrollArea.scrollTop = 
                 scrollArea.scrollHeight - scrollArea.clientHeight;
-    }
+    };
 
 
     // get full height of element including margins
@@ -216,7 +216,7 @@ var CHAT_HANDLERS = new function() {
                      parseFloat(styles['marginBottom']);
       
         return Math.ceil(el.offsetHeight + margin);
-      }
+    };
 
 
     // add a user to the currently typing list
@@ -270,9 +270,11 @@ var CHAT_HANDLERS = new function() {
         }
 
         return "<i>" + usersTyping + "</i>";
-    }
+    };
 
 
+    // sets a cookie. Taken from w3schools. Application uses cookies for:
+        // 1. username
     this.setCookie = function(cname, cvalue) {  // exdays) {
         // var d = new Date();
         // d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -280,6 +282,8 @@ var CHAT_HANDLERS = new function() {
         document.cookie = cname + "=" + cvalue + ";"; // + expires + ";path=/";
     };
 
+
+    // gets a cookie by cookie name. Taken from w3schools
     this.getCookie = function(cname) {
         var name = cname + "=";
         var decodedCookie = decodeURIComponent(document.cookie);
@@ -306,7 +310,7 @@ var CHAT_HANDLERS = new function() {
                 if (firstOnly) break;
             }
         }
-    }
+    };
 
 
     // formats a date object to a string
@@ -376,7 +380,7 @@ var CHAT_HANDLERS = new function() {
         // }
 
         // return intervalString + " ago";
-    }
+    };
 
     this.formatFullDate = function(date) {
         var time = "";
@@ -404,7 +408,7 @@ var CHAT_HANDLERS = new function() {
         return month + "/" + day + "/" + year + " " + 
             hours + ":" + mins + ":" + seconds + 
             "." + milliseconds + time;
-    }
+    };
 
 
     // formats a string to remove all single and double quotes ['"] and slashes

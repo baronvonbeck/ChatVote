@@ -26,6 +26,7 @@ module.exports = function(server) {
         socket.username = "Anonymous";
         
 
+        // join a new socket room, and emit user joined message
         socket.on(SOCKET_CHAT_ROOM_NAME, function(newChatRoomName) {
             if (socket.room && socket.room != newChatRoomName) {
                 socket.leave(socket.room);
@@ -48,10 +49,12 @@ module.exports = function(server) {
             }
         });
 
+
         // listen on change_username, to change current username
         socket.on(SOCKET_NEW_USERNAME, (data) => {
             socket.username = data.username;
         });
+
 
         // listen on new_message to emit new message to all users
         socket.on(SOCKET_NEW_MESSAGE, (data) => {
@@ -63,11 +66,13 @@ module.exports = function(server) {
                  messageDate : (new Date()).toString()});
         });
 
+
         // listen on typing, to emit User is Typing to all other users
         socket.on(SOCKET_TYPING, (data) => {
             socket.broadcast.to(socket.room).emit(SOCKET_TYPING, 
                 {username : socket.username});
         });
+
 
         // listen on typing, to emit User is Typing to all other users
         socket.on(SOCKET_DONE_TYPING, (data) => {
@@ -75,6 +80,7 @@ module.exports = function(server) {
                 {username : socket.username});
         });
     });
+
 
     return router;
 };

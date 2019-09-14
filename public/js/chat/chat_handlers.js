@@ -382,6 +382,8 @@ var CHAT_HANDLERS = new function() {
         // return intervalString + " ago";
     };
 
+
+    // formats a full date in dd/mm/yy hh/mm/ss.mmm AM/PM format
     this.formatFullDate = function(date) {
         var time = "";
         var milliseconds = date.getMilliseconds();
@@ -431,5 +433,14 @@ var CHAT_HANDLERS = new function() {
 
 5. Make scrollbar look cooler
 
-6. No
+6. No (remember what this was!)
+
+7. Add navbar
+
+8. Dark/light styles? Switch between?
+
+9. Choose fonts
+
+10. Auto detect links and switch out with a tags
+    (maybe follow https://stackoverflow.com/questions/1500260/detect-urls-in-text-with-javascript)
 */

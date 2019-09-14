@@ -166,7 +166,7 @@ var CHAT_HANDLERS = new function() {
             "<div class=\"message_container\"><div class=\"message_metadata\"><p class=\"user_info\">" + 
             data.username + "&nbsp;&nbsp;&nbsp;" + 
             "</p><p class=\"date_info\">" + 
-            CHAT_HANDLERS.formatDateToString(new Date()) + "</p></div>"  + 
+            CHAT_HANDLERS.formatDateToString(new Date(data.messageDate)) + "</p></div>"  + 
             "<div class=\"message_content\"><p class=\"message\">" + data.message + "</p></div></div>";
     };
 

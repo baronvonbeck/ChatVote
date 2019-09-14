@@ -56,9 +56,11 @@ module.exports = function(server) {
         // listen on new_message to emit new message to all users
         socket.on(SOCKET_NEW_MESSAGE, (data) => {
             socket.emit(SOCKET_NEW_MESSAGE, 
-                {message : data.message, username : socket.username + " (You)"});
+                {message : data.message, username : socket.username + " (You)",
+                messageDate : (new Date()).toString()});
             socket.broadcast.to(socket.room).emit(SOCKET_NEW_MESSAGE, 
-                {message : data.message, username : socket.username});
+                {message : data.message, username : socket.username,
+                 messageDate : (new Date()).toString()});
         });
 
         // listen on typing, to emit User is Typing to all other users

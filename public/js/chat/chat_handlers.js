@@ -23,7 +23,8 @@ var CHAT_HANDLERS = new function() {
                 CHAT_HANDLERS.currentUsername : "Anonymous");
 
             CHAT_HANDLERS.socketEmitUsernameChange(CHAT_HANDLERS.currentUsername);
-
+            CHAT_CONSTANTS.USERNAME_TEXT_EL.value = 
+                CHAT_HANDLERS.currentUsername;
             CHAT_HANDLERS.socketEmitConnectToRoom();
         });
 
@@ -73,7 +74,7 @@ var CHAT_HANDLERS = new function() {
                 CHAT_HANDLERS.socketEmitUsernameChange(
                     CHAT_HANDLERS.formatString(
                         CHAT_CONSTANTS.USERNAME_TEXT_EL.value));
-                CHAT_CONSTANTS.USERNAME_TEXT_EL.value = "";
+
             }, false);
         // Emit a username change on enter on text field
         CHAT_CONSTANTS.USERNAME_TEXT_EL.addEventListener(
@@ -84,7 +85,17 @@ var CHAT_HANDLERS = new function() {
                     CHAT_HANDLERS.socketEmitUsernameChange(
                         CHAT_HANDLERS.formatString(
                             CHAT_CONSTANTS.USERNAME_TEXT_EL.value));
-                    CHAT_CONSTANTS.USERNAME_TEXT_EL.value = "";
+                }
+            }, false);
+        // Username field should always display current username; if it has
+        // been changed and not committed, then undo changes
+        CHAT_CONSTANTS.USERNAME_CONTAINER_EL.addEventListener(
+            "focusout", function(e) {
+                if (e.relatedTarget != CHAT_CONSTANTS.USERNAME_SEND_BUTTON_EL 
+                    && e.relatedTarget != CHAT_CONSTANTS.USERNAME_TEXT_EL) {
+                    
+                    CHAT_CONSTANTS.USERNAME_TEXT_EL.value = 
+                        CHAT_HANDLERS.currentUsername;
                 }
             }, false);
     };
@@ -366,8 +377,8 @@ var CHAT_HANDLERS = new function() {
 }
 
 /*
-1. Format message so that it appears like in discord or steam
-         (username, date, different colors, different lines, etc)
+    done            1. Format message so that it appears like in discord or steam
+                        (username, date, different colors, different lines, etc)
 
 2. Change username always displays current username if user does not hit enter
 

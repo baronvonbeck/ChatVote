@@ -154,7 +154,7 @@ var CHAT_HANDLERS = new function() {
     // add a new user connection message to the room
     this.addNewUserConnectedToChatroom = function(data) {
         CHAT_CONSTANTS.CHATROOM_EL.innerHTML += 
-            "<div class=\"new_user_container\"><p class=\"message\">----New user connected: " + 
+            "<div class=\"new_user_container\"><p class=\"new_user_message\">----New user connected: " + 
             data.username + "</p></div>";
     };
 
@@ -163,10 +163,11 @@ var CHAT_HANDLERS = new function() {
     this.addMessageToChatroom = function(data) {
         CHAT_HANDLERS.removeUserFromCurrentlyTypingList(data.username);
         CHAT_CONSTANTS.CHATROOM_EL.innerHTML += 
-            "<div class=\"message_container\"><p class=\"message_info\">" + 
-            data.username + "&nbsp;&nbsp;&nbsp;&nbsp;" + 
-            CHAT_HANDLERS.formatDateToString(new Date()) + "</p>"  + 
-            "<p class=\"message\">" + data.message + "</p></div>";
+            "<div class=\"message_container\"><div class=\"message_metadata\"><p class=\"user_info\">" + 
+            data.username + "&nbsp;&nbsp;&nbsp;" + 
+            "</p><p class=\"date_info\">" + 
+            CHAT_HANDLERS.formatDateToString(new Date()) + "</p></div>"  + 
+            "<div class=\"message_content\"><p class=\"message\">" + data.message + "</p></div></div>";
     };
 
 
@@ -263,9 +264,9 @@ var CHAT_HANDLERS = new function() {
     // formats a date object to a string
     // courtesy of https://stackoverflow.com/questions/3177836/how-to-format-time-since-xxx-e-g-4-minutes-ago-similar-to-stack-exchange-site/23259289#23259289
     this.formatDateToString = function(date) {        
-        var seconds = Math.floor((new Date() - date) / 1000);
-        var temp;
-        var intervalString = "";
+        // var seconds = Math.floor((new Date() - date) / 1000);
+        // var temp;
+        // var intervalString = "";
 
         return this.formatFullDate(date);
 
@@ -331,9 +332,13 @@ var CHAT_HANDLERS = new function() {
 
     this.formatFullDate = function(date) {
         var time = "";
+        var milliseconds = date.getMilliseconds();
         var seconds = date.getSeconds();
         var mins = String(date.getMinutes());
         var hours = "";
+        var day = date.getDate();
+        var month = date.getMonth() + 1;
+        var year = date.getFullYear();
 
         if (seconds < 10)
             seconds = "0" + seconds;
@@ -348,10 +353,9 @@ var CHAT_HANDLERS = new function() {
         if (date.getHours() < 12) time = " AM";
         else time = " PM";
 
-        return (date.getMonth() + 1) + "/" + date.getDate() + "/" + 
-            date.getFullYear()
-            + " " + hours + ":" + mins + ":" + seconds + 
-            "." + date.getMilliseconds() + time;
+        return month + "/" + day + "/" + year + " " + 
+            hours + ":" + mins + ":" + seconds + 
+            "." + milliseconds + time;
     }
 
 

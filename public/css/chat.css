@@ -73,14 +73,24 @@ h1 {
     margin-right: 10px;
     margin-bottom: 10px;
 }
+p.new_user_message {
+    font-family: 'Comfortaa', sans-serif;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    overflow-x: clip;
+    color: black;
+}
 #chatroom_container_id .message_container {
-    margin-top: 10px;
+    margin-top: 12px;
     margin-left: 10px;
     margin-right: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
-p.message_info {
+.message_container .message_metadata {
     margin-bottom: 0px;
+}
+p.user_info {
+    display: inline;
     font-family: 'Comfortaa', sans-serif;
     white-space: pre-wrap;
     overflow-wrap: break-word;
@@ -88,8 +98,22 @@ p.message_info {
     color: #505050;
     font-weight: bold;
 }
-p.message {
+p.date_info {
+    display: inline;
+    font-family: 'Comfortaa', sans-serif;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    overflow-x: clip;
+    color: #505050;
+    font-weight: bold;
+    opacity: 0.6;
+    font-size: 0.75em;
+}
+.message_container .message_content {
     margin-top: 3px;
+}
+p.message {
+    margin: 0px;
     font-family: 'Comfortaa', sans-serif;
     white-space: pre-wrap;
     overflow-wrap: break-word;

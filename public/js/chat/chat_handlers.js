@@ -179,7 +179,44 @@ var CHAT_HANDLERS = new function() {
             "</p><p class=\"date_info\">" + 
             CHAT_HANDLERS.formatDateToString(new Date(data.messageDate)) + "</p></div>"  + 
             "<div class=\"message_content\"><p class=\"message\">" + data.message + "</p></div></div>";
+        
+        CHAT_HANDLERS.scrollToBottom();
     };
+
+
+    // scrolls to bottom message if new message is added and user is at bottom
+    // uses idea fromhttps://stackoverflow.com/questions/18614301/keep-overflow-div-scrolled-to-bottom-unless-user-scrolls-up
+    this.scrollToBottom = function() {
+        var scrollArea = document.documentElement;
+        var lastElementHeight = CHAT_HANDLERS.getAbsoluteHeight(
+            CHAT_CONSTANTS.CHATROOM_EL.lastElementChild);
+
+        // if the total scroll height minus the current client height is less than the 
+        // current vertical scroll position plus the height of the newly added element 
+        // (as that will be added underneath the visible area, hidden behind the text
+        // input area), then the user is scrolled all the way to the bottom
+        var isScrolledToBottom = 
+            scrollArea.scrollHeight - scrollArea.clientHeight <= 
+            scrollArea.scrollTop + lastElementHeight;
+
+        if (isScrolledToBottom)
+            scrollArea.scrollTop = 
+                scrollArea.scrollHeight - scrollArea.clientHeight;
+    }
+
+
+    // get full height of element including margins
+    // from https://stackoverflow.com/questions/10787782/full-height-of-a-html-element-div-including-border-padding-and-margin
+    this.getAbsoluteHeight = function(el) {
+        // Get the DOM Node if you pass in a string
+        el = (typeof el === 'string') ? document.querySelector(el) : el; 
+      
+        var styles = window.getComputedStyle(el);
+        var margin = parseFloat(styles['marginTop']) +
+                     parseFloat(styles['marginBottom']);
+      
+        return Math.ceil(el.offsetHeight + margin);
+      }
 
 
     // add a user to the currently typing list
@@ -380,12 +417,13 @@ var CHAT_HANDLERS = new function() {
     done            1. Format message so that it appears like in discord or steam
                         (username, date, different colors, different lines, etc)
 
-2. Change username always displays current username if user does not hit enter
+    done            2. Change username always displays current username if user does not hit enter
 
     done            3. User is Typing to display up to 3 or 4 separate users 
                         If more then (5/6/x users are typing...)
 
-4. Autoscroll users to bottom message if they are already at the bottom, otherwise stay
+    done            4. Autoscroll users to bottom message if they are already at the bottom, 
+                        otherwise stay
 
 5. Make scrollbar look cooler
 

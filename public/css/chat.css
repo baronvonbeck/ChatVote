@@ -67,10 +67,19 @@ h1 {
     background-color: #BCA9F5;
     overflow: auto;
 }
-#chatroom_container_id p.message_info {
+#chatroom_container_id .new_user_container {
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
+    margin-bottom: 10px;
+}
+#chatroom_container_id .message_container {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+p.message_info {
     margin-bottom: 0px;
     font-family: 'Comfortaa', sans-serif;
     white-space: pre-wrap;
@@ -79,15 +88,13 @@ h1 {
     color: #505050;
     font-weight: bold;
 }
-#chatroom_container_id p.message {
-    margin-top: 0px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
+p.message {
+    margin-top: 3px;
     font-family: 'Comfortaa', sans-serif;
     white-space: pre-wrap;
     overflow-wrap: break-word;
     overflow-x: clip;
+    color: black;
 }
 
 

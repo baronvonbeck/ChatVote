@@ -30,7 +30,7 @@ var CHAT_HANDLERS = new function() {
 
         // Listen on new user connected to room
         CHAT_HANDLERS.socket.on(CHAT_CONSTANTS.SOCKET_USER_JOINED, (data) => {
-            CHAT_HANDLERS.addNewUserConnectedToRoom(data);
+            CHAT_HANDLERS.addNewUserConnectedToChatroom(data);
         });
 
 
@@ -152,19 +152,21 @@ var CHAT_HANDLERS = new function() {
 
 
     // add a new user connection message to the room
-    this.addNewUserConnectedToRoom = function(data) {
+    this.addNewUserConnectedToChatroom = function(data) {
         CHAT_CONSTANTS.CHATROOM_EL.innerHTML += 
-            "<p class='message'>----New user connected: " + data.username + "</p>";
+            "<div class=\"new_user_container\"><p class=\"message\">----New user connected: " + 
+            data.username + "</p></div>";
     };
 
 
     // add an incoming new message to the chatroom
     this.addMessageToChatroom = function(data) {
         CHAT_HANDLERS.removeUserFromCurrentlyTypingList(data.username);
-        CHAT_CONSTANTS.CHATROOM_EL.innerHTML += "<p class='message_info'>" + 
+        CHAT_CONSTANTS.CHATROOM_EL.innerHTML += 
+            "<div class=\"message_container\"><p class=\"message_info\">" + 
             data.username + "&nbsp;&nbsp;&nbsp;&nbsp;" + 
             CHAT_HANDLERS.formatDateToString(new Date()) + "</p>"  + 
-            "<p class='message'>" + data.message + "</p>";
+            "<p class=\"message\">" + data.message + "</p></div>";
     };
 
 
@@ -265,88 +267,91 @@ var CHAT_HANDLERS = new function() {
         var temp;
         var intervalString = "";
 
-        // return this.formatFullDate(date);
+        return this.formatFullDate(date);
 
-        var interval = Math.floor(seconds / 31536000);
-        if (interval >= 1) {
-            return this.formatFullDate(date);
-        } 
-        else {
-            interval = Math.floor(seconds / 2592000);
-            if (interval >= 1) {
-                intervalString += interval + " month";
-                if (interval > 1) intervalString += "s";
+        // var interval = Math.floor(seconds / 31536000);
+        // if (interval >= 1) {
+        //     return this.formatFullDate(date);
+        // } 
+        // else {
+        //     interval = Math.floor(seconds / 2592000);
+        //     if (interval >= 1) {
+        //         intervalString += interval + " month";
+        //         if (interval > 1) intervalString += "s";
                 
-                temp = Math.floor((seconds - (interval * 2592000)) / 86400);
+        //         temp = Math.floor((seconds - (interval * 2592000)) / 86400);
 
-                intervalString += ", " + temp + " day";
-                if (temp != 1) intervalString += "s";
-            } 
-            else {
-                interval = Math.floor(seconds / 86400);
-                if (interval >= 1) {
-                    intervalString += interval + " day";
-                    if (interval > 1) intervalString += "s";
+        //         intervalString += ", " + temp + " day";
+        //         if (temp != 1) intervalString += "s";
+        //     } 
+        //     else {
+        //         interval = Math.floor(seconds / 86400);
+        //         if (interval >= 1) {
+        //             intervalString += interval + " day";
+        //             if (interval > 1) intervalString += "s";
 
-                    temp = Math.floor((seconds - (interval * 86400)) / 3600);
+        //             temp = Math.floor((seconds - (interval * 86400)) / 3600);
                     
-                    intervalString += ", " + temp + " hour";
-                    if (temp != 1) intervalString += "s";
-                } 
-                else {
-                    interval = Math.floor(seconds / 3600);
-                    if (interval >= 1) {
-                        intervalString += interval + " hour";
-                        if (interval > 1) intervalString += "s";
+        //             intervalString += ", " + temp + " hour";
+        //             if (temp != 1) intervalString += "s";
+        //         } 
+        //         else {
+        //             interval = Math.floor(seconds / 3600);
+        //             if (interval >= 1) {
+        //                 intervalString += interval + " hour";
+        //                 if (interval > 1) intervalString += "s";
 
-                        temp = Math.floor((seconds - (interval * 3600)) / 60);
+        //                 temp = Math.floor((seconds - (interval * 3600)) / 60);
                         
-                        intervalString += ", " + temp + " minute";
-                        if (temp != 1) intervalString += "s";
-                    } 
-                    else {
-                        interval = Math.floor(seconds / 60);
-                        if (interval >= 1) {
-                            intervalString += interval + " minute";
-                            if (interval > 1) intervalString += "s";
+        //                 intervalString += ", " + temp + " minute";
+        //                 if (temp != 1) intervalString += "s";
+        //             } 
+        //             else {
+        //                 interval = Math.floor(seconds / 60);
+        //                 if (interval >= 1) {
+        //                     intervalString += interval + " minute";
+        //                     if (interval > 1) intervalString += "s";
 
-                            temp = (seconds - (interval * 60));
+        //                     temp = (seconds - (interval * 60));
                             
-                            intervalString += ", " + (seconds % 60) + " second";
-                            if (temp != 1) intervalString += "s";
-                        } 
-                        else {
-                            intervalString += seconds + " second";
-                            if (seconds != 1) intervalString += "s";
-                        }
-                    }
-                }
-            }
-        }
+        //                     intervalString += ", " + (seconds % 60) + " second";
+        //                     if (temp != 1) intervalString += "s";
+        //                 } 
+        //                 else {
+        //                     intervalString += seconds + " second";
+        //                     if (seconds != 1) intervalString += "s";
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
 
-        return intervalString + " ago";
+        // return intervalString + " ago";
     }
 
     this.formatFullDate = function(date) {
-        // var time = "";
-        // var mins = String(date.getMinutes());
-        // var hours = "";
-        // if (date.getMinutes() < 10)
-        //     mins = "0" + mins;
+        var time = "";
+        var seconds = date.getSeconds();
+        var mins = String(date.getMinutes());
+        var hours = "";
 
-        // if (date.getHours() - 12 > 0)
-        //     hours = String(date.getHours() - 12);
-        // else 
-        //     hours = String((date.getHours() == 0 ? "12" : date.getHours()));
+        if (seconds < 10)
+            seconds = "0" + seconds;
+        if (mins < 10)
+            mins = "0" + mins;
 
-        // if (date.getHours() < 12) time = " AM";
-        // else time = " PM";
+        if (date.getHours() - 12 > 0)
+            hours = String(date.getHours() - 12);
+        else 
+            hours = String((date.getHours() == 0 ? "12" : date.getHours()));
+
+        if (date.getHours() < 12) time = " AM";
+        else time = " PM";
 
         return (date.getMonth() + 1) + "/" + date.getDate() + "/" + 
-            date.getFullYear();
-            
-            // + " " + hours + ":" + mins + 
-            // "." + date.getMilliseconds() + time;
+            date.getFullYear()
+            + " " + hours + ":" + mins + ":" + seconds + 
+            "." + date.getMilliseconds() + time;
     }
 
 

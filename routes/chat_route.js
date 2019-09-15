@@ -65,13 +65,14 @@ module.exports = function(server) {
         // listen on new_message to emit new message to all users
         socket.on(SOCKET_NEW_MESSAGE, (data) => {
             var formattedMessage = this.formatHTML(data.message);
+            var dateSent = Date.now();
 
             socket.emit(SOCKET_NEW_MESSAGE, 
                 {message : formattedMessage, username : socket.username + " (You)",
-                messageDate : (new Date()).toString()});
+                messageDate : dateSent});
             socket.broadcast.to(socket.room).emit(SOCKET_NEW_MESSAGE, 
                 {message : formattedMessage, username : socket.username,
-                 messageDate : (new Date()).toString()});
+                 messageDate : dateSent});
         });
 
 

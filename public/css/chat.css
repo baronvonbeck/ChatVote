@@ -1,5 +1,6 @@
+/* chat.css - general stylings */
 
-
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
 
 html {
     height: 100%;
@@ -10,6 +11,7 @@ body {
     height: 100%;
     width: 100%;
     background-color: #BCA9F5;
+    font-family: 'Fira Sans', sans-serif;
 }
 header {
     text-align: center;
@@ -17,7 +19,7 @@ header {
 }
 
 h1 {
-    font-family: 'Comfortaa', sans-serif;
+    font-family: 'Fira Sans', sans-serif;
     margin: 0px;
 }
 
@@ -78,7 +80,7 @@ h1 {
 }
 #username_text_id {
     width: 33vw;
-    font-family: 'Comfortaa', sans-serif;
+    font-family: 'Fira Sans', sans-serif;
 }
 
 
@@ -96,14 +98,14 @@ h1 {
     margin-right: 10px;
     margin-bottom: 12px;
 }
-.message_container .new_user_container {
-    margin-top: 10px;
+#chatroom_container_id .new_user_container {
+    margin-top: 12px;
     margin-left: 10px;
     margin-right: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 p.new_user_message {
-    font-family: 'Comfortaa', sans-serif;
+    font-family: 'Fira Sans', sans-serif;
     white-space: pre-wrap;
     overflow-wrap: break-word;
     overflow-x: clip;
@@ -114,7 +116,7 @@ p.new_user_message {
 }
 p.user_info {
     display: inline;
-    font-family: 'Comfortaa', sans-serif;
+    font-family: 'Fira Sans', sans-serif;
     white-space: pre-wrap;
     overflow-wrap: break-word;
     overflow-x: clip;
@@ -123,7 +125,7 @@ p.user_info {
 }
 p.date_info {
     display: inline;
-    font-family: 'Comfortaa', sans-serif;
+    font-family: 'Fira Sans', sans-serif;
     white-space: pre-wrap;
     overflow-wrap: break-word;
     overflow-x: clip;
@@ -137,7 +139,7 @@ p.date_info {
 }
 p.message {
     margin: 0px;
-    font-family: 'Comfortaa', sans-serif;
+    font-family: 'Fira Sans', sans-serif;
     white-space: pre-wrap;
     overflow-wrap: break-word;
     overflow-x: clip;
@@ -173,7 +175,7 @@ p.message {
     flex: 1;
     width: auto;
     height: auto;
-    font-family: 'Comfortaa', sans-serif;
+    font-family: 'Fira Sans', sans-serif;
     resize: none;
 }
 

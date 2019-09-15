@@ -458,7 +458,7 @@ var CHAT_HANDLERS = new function() {
     done            4. Autoscroll users to bottom message if they are already at the bottom, 
                         otherwise stay
 
-5. Make scrollbar look cooler
+    done            5. Make scrollbar look cooler
 
 6. No (remember what this was!)
 

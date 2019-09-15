@@ -415,7 +415,14 @@ var CHAT_HANDLERS = new function() {
 
     // formats a string to remove all single and double quotes ['"] and slashes
     this.formatString = function(text) {
-        return text.trim().replace(/['"\\\/]+/g, '');
+        return text.trim();  //CHAT_HANDLERS.formatHTML(text.trim());
+    };
+
+
+    // formats possible html (also done on server side)
+    this.formatHTML = function(text) {
+        return String(text).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
     };
 }
 

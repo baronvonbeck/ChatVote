@@ -32,8 +32,8 @@ var CHAT_SEARCH_HANDLERS = new function() {
     }
 
 
-    // formats a string to remove all single and double quotes ['"] and slashes
+    // formats a string to remove all slashes
     this.formatString = function(text) {
-        return text.trim().replace(/['"\\\/]+/g, '');
+        return text.trim().replace(/[\\\/]+/g, '');
     };
 }

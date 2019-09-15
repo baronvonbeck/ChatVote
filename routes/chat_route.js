@@ -8,7 +8,13 @@ module.exports = function(server) {
         res.render('chat_search');
     });
     router.get("/*", (req, res, next) => {
-        res.render('chat', {chatRoom: req.url});
+        var newUrl = "/" + req.url.replace(/[\\\/]+/g, '');
+        if (req.url != newUrl) {
+            res.redirect("/chat" + newUrl);
+            return;
+        }
+
+        res.render('chat', {chatRoom: newUrl});
     });
 
 
@@ -52,17 +58,19 @@ module.exports = function(server) {
 
         // listen on change_username, to change current username
         socket.on(SOCKET_NEW_USERNAME, (data) => {
-            socket.username = data.username;
+            socket.username = this.formatHTML(data.username);
         });
 
 
         // listen on new_message to emit new message to all users
         socket.on(SOCKET_NEW_MESSAGE, (data) => {
+            var formattedMessage = this.formatHTML(data.message);
+
             socket.emit(SOCKET_NEW_MESSAGE, 
-                {message : data.message, username : socket.username + " (You)",
+                {message : formattedMessage, username : socket.username + " (You)",
                 messageDate : (new Date()).toString()});
             socket.broadcast.to(socket.room).emit(SOCKET_NEW_MESSAGE, 
-                {message : data.message, username : socket.username,
+                {message : formattedMessage, username : socket.username,
                  messageDate : (new Date()).toString()});
         });
 
@@ -79,6 +87,13 @@ module.exports = function(server) {
             socket.broadcast.to(socket.room).emit(SOCKET_DONE_TYPING, 
                 {username : socket.username});
         });
+
+
+        // formats possible html (also done on server side)
+        this.formatHTML = function(text) {
+            return String(text).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+        };
     });
 
 

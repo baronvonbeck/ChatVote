@@ -30,4 +30,6 @@ const CHAT_CONSTANTS = new function() {
 
     this.DONE_TYPING_INTERVAL       = 1500; // time in ms, 1.5 seconds
     this.MAX_INDIVIDUAL_USERS       = 4;
+
+    this.URL_REGEX = "";
 };

@@ -1,0 +1,70 @@
+/* general.css - general stylings across all pages*/
+
+html {
+    height: 100%;
+    width: 100%;
+}
+body {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: #BCA9F5;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.navbar_container {
+    width: 100%;
+}
+ul.navbar_ul {
+    list-style-type: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #8341ff;
+}
+
+li.navbar_li {
+    float: left;
+}
+
+li.navbar_li a, .navbar_dropbutton {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li.navbar_li a.navbar_link:hover, .navbar_dropdown_li:hover .navbar_dropbutton {
+    background-color: rgb(92, 2, 145);
+}
+
+li.navbar_dropdown_li {
+    display: inline-block;
+}
+
+.navbar_dropdown_content {
+    display: none;
+    position: absolute;
+    background-color: #e9cdff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 2;
+}
+
+.navbar_dropdown_content a.navbar_link {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.navbar_dropdown_content a.navbar_link:hover {
+    background-color: #f1f1f1;
+}
+
+.navbar_dropdown_li:hover .navbar_dropdown_content {
+    display: block;
+}

@@ -1,18 +1,8 @@
-/* chat.css - general stylings */
+/* chat.css - chat page specific stylings */
 
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans');
 
-html {
-    height: 100%;
-    width: 100%;
-}
-body {
-    margin: 0px;
-    height: 100%;
-    width: 100%;
-    background-color: #BCA9F5;
-    font-family: 'Fira Sans', sans-serif;
-}
+
 header {
     text-align: center;
     background-color: #8767e6;
@@ -70,7 +60,7 @@ h1 {
 /* Username display and change */
 #username_change_container_id {
     display: inline-flex;
-    height: 35px;
+    height: 45px;
 }
 #username_change_id {
     display: flex;

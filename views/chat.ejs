@@ -1,13 +1,41 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" const="text/html;charset=UTF-8" />
-        <link rel="stylesheet" type="text/css" href="/css/chat.css" >
+        <meta http-equiv="Content-Type" const="text/html;charset=UTF-8"/>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+
+        <link rel="stylesheet" type="text/css" href="/css/general.css">
+        <link rel="stylesheet" type="text/css" href="/css/chat.css">
+        
         <script src="/socket.io/socket.io.js"></script>
+
         <title>Chat</title>
     </head>
 
     <body>
+        <div class="navbar_container">
+            <ul class="navbar_ul">
+                <li class="navbar_li">
+                    <a href="#home" class="navbar_link">Home</a>
+                </li>
+                <li class="navbar_li">
+                    <a href="#news" class="navbar_link">News</a>
+                </li>
+                <li class="navbar_dropdown_li">
+                    <a href="javascript:void(0)" class="navbar_dropbutton">Dropdown</a>
+                    <div class="navbar_dropdown_content">
+                        <a href="#" class="navbar_link">Link 1</a>
+                        <a href="#" class="navbar_link">Link 2</a>
+                        <a href="#" class="navbar_link">Link 3</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
         <header>
             <h1>Chat</h1>
         </header>

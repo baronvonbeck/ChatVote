@@ -468,6 +468,6 @@ var CHAT_HANDLERS = new function() {
 
 9. Choose fonts
 
-10. Auto detect links and switch out with a tags
-    (maybe follow https://stackoverflow.com/questions/1500260/detect-urls-in-text-with-javascript)
+    done            10. Auto detect links and switch out with a tags
+    
 */

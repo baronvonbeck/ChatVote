@@ -21,6 +21,22 @@ h1 {
     margin: 0px;
 }
 
+/* Scrollbar width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Scrollbar handle */
+::-webkit-scrollbar-thumb {
+    background: #5f1bff; 
+    border-radius: 10px;
+}
+
+/* Scrollbar Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #400cb9; 
+}
+
 
 .send_text_container {
     width: 100%;
@@ -33,6 +49,12 @@ h1 {
 }
 .send_text_input {
     width: auto;
+    outline: 0;
+    background-color: #dbd1fa;
+    border: none;
+}
+.send_text_input:focus {
+    background-color: #b4adca;
 }
 .send_button {
     height: 100%;
@@ -50,10 +72,12 @@ h1 {
 }
 #username_change_id {
     display: flex;
+    
     background-color: #8767e6;
     flex-wrap: nowrap;
 }
 #username_text_id {
+    width: 33vw;
     font-family: 'Comfortaa', sans-serif;
 }
 

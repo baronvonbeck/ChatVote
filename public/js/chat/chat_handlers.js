@@ -178,7 +178,8 @@ var CHAT_HANDLERS = new function() {
             data.username + "&nbsp;&nbsp;&nbsp;" + 
             "</p><p class=\"date_info\">" + 
             CHAT_HANDLERS.formatDateToString(new Date(data.messageDate)) + "</p></div>"  + 
-            "<div class=\"message_content\"><p class=\"message\">" + data.message + "</p></div></div>";
+            "<div class=\"message_content\"><p class=\"message\">" + 
+            CHAT_HANDLERS.replaceTextWithLinksIfValid(data.message) + "</p></div></div>";
         
         CHAT_HANDLERS.scrollToBottom();
     };
@@ -310,6 +311,25 @@ var CHAT_HANDLERS = new function() {
                 if (firstOnly) break;
             }
         }
+    };
+
+
+    // attempts to identify links in text and replace with an href
+    // idea from https://stackoverflow.com/a/3890175
+    this.replaceTextWithLinksIfValid = function(text) {
+        //URLs starting with http://, https://, or ftp://
+        var replacedText = text.replace(CHAT_CONSTANTS.URL_REGEX, 
+            '<a href="$1" target="_blank">$1</a>');
+    
+        //URLs starting with "www." (without // before it, or it'd re-link the ones done above).
+        replacedText = replacedText.replace(CHAT_CONSTANTS.WWW_URL_REGEX, 
+            '$1<a href="http://$2" target="_blank">$2</a>');
+    
+        //Change email addresses to mailto:: links.
+        replacedText = replacedText.replace(CHAT_CONSTANTS.MAILTO_REGEX, 
+            '<a href="mailto:$1">$1</a>');
+    
+        return replacedText;
     };
 
 

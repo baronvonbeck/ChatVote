@@ -16,7 +16,7 @@
         <title>Chat</title>
     </head>
 
-    <body>
+    <body class="dark_theme">
         <div class="navbar_container">
             <ul class="navbar_ul">
                 <div class="navbar_left">
@@ -45,6 +45,11 @@
                         <div class="navbar_dropdown_content">
                             <a href="#" class="navbar_link">Chat</a>
                             <a href="#" class="navbar_link">Vote</a>
+                        </div>
+                    </li>
+                    <li class="navbar_li">
+                        <div id="theme_toggler_id" class="theme_toggler" tabindex="0">
+                            <img id="theme_img_id" src="/img/theme-dark.png" alt="Switch to light theme" title="Go light!">
                         </div>
                     </li>
                 </div>
@@ -91,6 +96,8 @@
         </script>
 
         <script src="/js/other/jquery.min.js"></script>
+        <script src="/js/other/navbar_constants.js"></script>
+        <script src="/js/other/navbar_handlers.js"></script>
         <script src="/js/chat/chat_constants.js"></script>
         <script src="/js/chat/chat_handlers.js"></script>
         <script src="/js/chat/chat.js"></script>

@@ -59,7 +59,9 @@ h1 {
     text-decoration: none;
 }
 
-.navbar_li a.navbar_link:hover, .navbar_dropdown_li:hover .navbar_dropbutton {
+.navbar_li a.navbar_link:hover, 
+.navbar_dropdown_li:hover .navbar_dropbutton,
+.navbar_li .theme_toggler:hover {
     background-color: #5c0291;
 }
 
@@ -92,6 +94,8 @@ h1 {
     display: block;
 }
 
+
+/* Tooltip */
 #room_link_id {
     height: 100%;
     cursor: pointer;
@@ -113,4 +117,21 @@ h1 {
   
 .tooltip:hover .tooltip_text {
     visibility: visible;
+}
+
+
+/* Theme toggler */
+.theme_toggler {
+    outline: 0;
+    height: 100%;
+}
+.theme_toggler img {
+    outline: 0;
+    position: relative;
+    width: 35px;
+    height: 35px;
+    vertical-align: middle;
+}
+.theme_toggler img:hover {
+    cursor: pointer;
 }

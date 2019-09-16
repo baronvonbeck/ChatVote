@@ -20,7 +20,7 @@ var CHAT_HANDLERS = new function() {
         CHAT_CONSTANTS.ROOM_LINK_EL.addEventListener(
             "click", function() {
                 CHAT_HANDLERS.copyTextToClipboard(
-                    window.location.href)
+                    window.location.href);
             }, false);
 
 
@@ -109,6 +109,8 @@ var CHAT_HANDLERS = new function() {
                         CHAT_HANDLERS.currentUsername;
                 }
             }, false);
+
+        NAVBAR_HANDLERS.addNavbarEventListeners();
     };
 
 
@@ -293,7 +295,7 @@ var CHAT_HANDLERS = new function() {
         t.select();
         document.execCommand("copy");
         document.body.removeChild(t);
-    }
+    };
 
 
     // sets a cookie. Taken from w3schools. Application uses cookies for:
@@ -484,11 +486,11 @@ var CHAT_HANDLERS = new function() {
 
 6. No (remember what this was!)
 
-7. Add navbar
+    done            7. Add navbar
 
 8. Dark/light styles? Switch between?
 
-9. Choose fonts
+    done            9. Choose fonts
 
     done            10. Auto detect links and switch out with a tags
     

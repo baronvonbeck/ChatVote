@@ -91,3 +91,26 @@ h1 {
 .navbar_dropdown_li:hover .navbar_dropdown_content {
     display: block;
 }
+
+#room_link_id {
+    height: 100%;
+    cursor: pointer;
+}
+.title_text {
+    font-size: 2em;
+    font-weight: bold;
+    color: #000000;
+    margin-top: 5px;
+}
+
+.tooltip_text {
+    background-color: #BCA9F5;
+    visibility: hidden;
+    position: absolute;
+    border-radius: 6px;
+    padding: 5px 3px;
+}
+  
+.tooltip:hover .tooltip_text {
+    visibility: visible;
+}

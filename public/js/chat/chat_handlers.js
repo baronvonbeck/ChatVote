@@ -16,13 +16,24 @@ var CHAT_HANDLERS = new function() {
             transports: ['websocket'], upgrade: false});
 
 
+        // click title to get link to room
+        CHAT_CONSTANTS.ROOM_LINK_EL.addEventListener(
+            "click", function() {
+                CHAT_HANDLERS.copyTextToClipboard(
+                    window.location.href)
+            }, false);
+
+
         // Connect to a specific room
         CHAT_HANDLERS.socket.on("connect", function() {
-            CHAT_HANDLERS.currentUsername = CHAT_HANDLERS.getCookie(CHAT_CONSTANTS.COOKIE_USERNAME);
-            CHAT_HANDLERS.currentUsername = (CHAT_HANDLERS.currentUsername.length > 0 ? 
+            CHAT_HANDLERS.currentUsername = 
+                CHAT_HANDLERS.getCookie(CHAT_CONSTANTS.COOKIE_USERNAME);
+            CHAT_HANDLERS.currentUsername = 
+                (CHAT_HANDLERS.currentUsername.length > 0 ? 
                 CHAT_HANDLERS.currentUsername : "Anonymous");
 
-            CHAT_HANDLERS.socketEmitUsernameChange(CHAT_HANDLERS.currentUsername);
+            CHAT_HANDLERS.socketEmitUsernameChange(
+                CHAT_HANDLERS.currentUsername);
             CHAT_CONSTANTS.USERNAME_TEXT_EL.value = 
                 CHAT_HANDLERS.currentUsername;
             CHAT_HANDLERS.socketEmitConnectToRoom();
@@ -272,6 +283,17 @@ var CHAT_HANDLERS = new function() {
 
         return "<i>" + usersTyping + "</i>";
     };
+
+
+    this.copyTextToClipboard = function(textToCopy) {
+        let t = document.createElement("textarea");
+        t.setAttribute("type", "hidden");
+        t.textContent = textToCopy;
+        document.body.appendChild(t);
+        t.select();
+        document.execCommand("copy");
+        document.body.removeChild(t);
+    }
 
 
     // sets a cookie. Taken from w3schools. Application uses cookies for:

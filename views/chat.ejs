@@ -19,26 +19,35 @@
     <body>
         <div class="navbar_container">
             <ul class="navbar_ul">
-                <li class="navbar_li">
-                    <a href="#home" class="navbar_link">Home</a>
-                </li>
-                <li class="navbar_li">
-                    <a href="#news" class="navbar_link">News</a>
-                </li>
-                <li class="navbar_dropdown_li">
-                    <a href="javascript:void(0)" class="navbar_dropbutton">Dropdown</a>
-                    <div class="navbar_dropdown_content">
-                        <a href="#" class="navbar_link">Link 1</a>
-                        <a href="#" class="navbar_link">Link 2</a>
-                        <a href="#" class="navbar_link">Link 3</a>
-                    </div>
-                </li>
+                <div class="navbar_left">
+                    <li class="navbar_li">
+                        <a href="/" class="navbar_link">Home</a>
+                    </li>
+                </div>
+
+                <div class="navbar_center">
+                    <h1 id="title_id">Chat</h1>
+                </div>
+                
+                <div class="navbar_right">
+                    <li class="navbar_dropdown_li">
+                        <a href="javascript:void(0)" class="navbar_dropbutton">About</a>
+                        <div class="navbar_dropdown_content">
+                            <a href="#" class="navbar_link">Chat Application</a>
+                            <a href="#" class="navbar_link">Me</a>
+                        </div>
+                    </li>
+                    <li class="navbar_dropdown_li">
+                        <a href="javascript:void(0)" class="navbar_dropbutton">Apps</a>
+                        <div class="navbar_dropdown_content">
+                            <a href="#" class="navbar_link">Chat</a>
+                            <a href="#" class="navbar_link">Vote</a>
+                        </div>
+                    </li>
+                </div>
             </ul>
         </div>
 
-        <header>
-            <h1>Chat</h1>
-        </header>
 
         <div id="username_change_container_id">
             <div id="username_change_id" class="send_text_container">

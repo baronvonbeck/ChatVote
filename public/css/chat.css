@@ -8,10 +8,6 @@ header {
     background-color: #8767e6;
 }
 
-h1 {
-    font-family: 'Fira Sans', sans-serif;
-    margin: 0px;
-}
 
 /* Scrollbar width */
 ::-webkit-scrollbar {

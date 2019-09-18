@@ -55,8 +55,11 @@ header {
 
 /* Username display and change */
 #username_change_container_id {
+    position: fixed;
     display: inline-flex;
     height: 45px;
+    top: 45px;
+    z-index: 2;
 }
 #username_change_id {
     display: flex;
@@ -74,6 +77,8 @@ header {
 #chatroom_container_id {
     height: auto;
     width: 100%;
+    position: relative;
+    top: 90px;
     margin-bottom: 150px;
     background-color: #BCA9F5;
     overflow: auto;

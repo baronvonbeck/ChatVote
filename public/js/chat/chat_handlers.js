@@ -494,4 +494,5 @@ var CHAT_HANDLERS = new function() {
 
     done            10. Auto detect links and switch out with a tags
     
+    done            11. Sticky top bar
 */

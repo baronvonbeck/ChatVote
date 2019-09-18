@@ -6,6 +6,7 @@ const CHAT_CONSTANTS = new function() {
 
     this.TITLE_EL                   = document.getElementById("title_id");
     this.ROOM_LINK_EL               = document.getElementById("room_link_id");
+    this.TITLE_TOOLTIP_EL           = document.getElementById("title_tooltip_id");
 
     this.CHATROOM_CONTAINER_EL      = document.getElementById("chatroom_container_id");
     this.CHATROOM_EL                = document.getElementById("chatroom_id");

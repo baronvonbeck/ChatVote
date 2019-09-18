@@ -18,7 +18,15 @@ var CHAT_HANDLERS = new function() {
 
         // click title to get link to room
         CHAT_CONSTANTS.ROOM_LINK_EL.addEventListener(
-            "click", function() {
+            "click", function(e) {
+                e.stopPropagation();
+                CHAT_HANDLERS.copyTextToClipboard(
+                    window.location.href);
+            }, false);
+        // click title tooltip to get link to room
+        CHAT_CONSTANTS.TITLE_TOOLTIP_EL.addEventListener(
+            "click", function(e) {
+                e.stopPropagation();
                 CHAT_HANDLERS.copyTextToClipboard(
                     window.location.href);
             }, false);
@@ -287,7 +295,9 @@ var CHAT_HANDLERS = new function() {
     };
 
 
+    // copies passed in string to clipboard
     this.copyTextToClipboard = function(textToCopy) {
+        console.log("test");
         let t = document.createElement("textarea");
         t.setAttribute("type", "hidden");
         t.textContent = textToCopy;

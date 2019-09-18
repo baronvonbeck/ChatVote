@@ -24,6 +24,7 @@ h1 {
     top: 0px;
     height: 45px;
     z-index: 4;
+    background-color: #8341ff;
 }
 .navbar_container .navbar_ul {
     display: flex;
@@ -32,7 +33,6 @@ h1 {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #8341ff;
     justify-content: space-between;
 }
 
@@ -130,7 +130,15 @@ h1 {
 .tooltip_text:hover {
     background-color: #5c0291;
 }
-
+.tooltip:hover:active {
+    background-color: #8016bd;
+}
+.tooltip:hover:active .tooltip_text {
+    background-color: #8016bd;
+}
+.tooltip_text:hover:active {
+    background-color: #8016bd;
+}
 
 /* Theme toggler */
 .theme_toggler {

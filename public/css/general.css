@@ -115,8 +115,8 @@ h1 {
     background-color: #BCA9F5;
     visibility: hidden;
     position: absolute;
-    top: 100%;
-    left: 45%;
+    top: 45px;
+    left: 0px;
     border-radius: 6px;
     padding: 5px 3px;
     box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.2);

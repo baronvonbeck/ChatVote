@@ -30,6 +30,13 @@ var CHAT_HANDLERS = new function() {
                 CHAT_HANDLERS.copyTextToClipboard(
                     window.location.href);
             }, false);
+        // click title to get link to room
+        CHAT_CONSTANTS.ROOM_LINK_EL.addEventListener(
+            "mouseenter", function(e) {
+                e.stopPropagation();
+                CHAT_CONSTANTS.TITLE_TOOLTIP_EL.style.left = 
+                    (e.clientX - CHAT_CONSTANTS.TOOLTIP_X_OFFSET) + "px";
+            }, false);
 
 
         // Connect to a specific room

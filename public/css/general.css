@@ -109,6 +109,7 @@ h1 {
     font-size: 2em;
     font-weight: bold;
     color: #000000;
+    margin-top: 3px;
 }
 .tooltip_text {
     background-color: #BCA9F5;
@@ -142,6 +143,7 @@ h1 {
     width: 35px;
     height: 35px;
     vertical-align: middle;
+    margin-top: 5px;
 }
 .theme_toggler img:hover {
     cursor: pointer;

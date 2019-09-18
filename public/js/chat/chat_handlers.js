@@ -211,7 +211,7 @@ var CHAT_HANDLERS = new function() {
         // input area), then the user is scrolled all the way to the bottom
         var isScrolledToBottom = 
             scrollArea.scrollHeight - scrollArea.clientHeight <= 
-            scrollArea.scrollTop + lastElementHeight;
+            scrollArea.scrollTop + lastElementHeight + 8;
 
         if (isScrolledToBottom)
             scrollArea.scrollTop = 

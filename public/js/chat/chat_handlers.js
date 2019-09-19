@@ -11,6 +11,9 @@ var CHAT_HANDLERS = new function() {
 
 
     this.addAllEventListeners = function() {
+        
+        NAVBAR_HANDLERS.addNavbarEventListeners();
+
         // make connection
         CHAT_HANDLERS.socket = io.connect({
             transports: ['websocket'], upgrade: false});
@@ -124,8 +127,6 @@ var CHAT_HANDLERS = new function() {
                         CHAT_HANDLERS.currentUsername;
                 }
             }, false);
-
-        NAVBAR_HANDLERS.addNavbarEventListeners();
     };
 
 
@@ -336,8 +337,8 @@ var CHAT_HANDLERS = new function() {
             while (c.charAt(0) == ' ')
                 c = c.substring(1);
 
-        if (c.indexOf(name) == 0)
-            return c.substring(name.length, c.length);
+            if (c.indexOf(name) == 0)
+                return c.substring(name.length, c.length);
         }
         return "";
     };

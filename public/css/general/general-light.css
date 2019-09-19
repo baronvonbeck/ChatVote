@@ -1,1 +1,19 @@
 /* general-light.css - general light stylings across all pages */
+
+
+/* Establish variables for light theme, background light grey */
+body.light_theme {
+    --background-color: #a00606;
+    --text-color: #252525;
+    --text-hover-color: #a0a0a0;
+    --dropdown-menu-background-color: white;
+    --dropdown-menu-background-hover-color: #b9b9b9;
+    --dropdown-menu-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+
+    background: var(--background-color);
+}
+
+/* 
+body.light_theme .navbar_container {
+    background-color: var(--background-color);
+} */

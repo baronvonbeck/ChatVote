@@ -1,1 +1,19 @@
 /* general-dark.css - general dark stylings across all pages */
+
+
+/* Establish variables for dark theme, background dark grey */
+body.dark_theme {
+    --background-color: #252525;
+    --text-color: white;
+    --text-hover-color: #d6d6d6;
+    --dropdown-menu-background-color: #080808;
+    --dropdown-menu-background-hover-color: #848484;
+    --dropdown-menu-shadow: 0px 5px 10px 0px rgba(255, 255, 255, 0.1);
+
+    background: var(--background-color);
+}
+
+/* 
+body.dark_theme .navbar_container {
+    background-color: var(--background-color);
+} */

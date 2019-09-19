@@ -112,14 +112,20 @@ h1 {
 /* Tooltip */
 #room_link_id {
     height: 100%;
+    width: 33vw;
     cursor: pointer;
     z-index: 8;
+    text-overflow: ellipsis;
 }
 .title_text {
+    width: 100%;
     font-size: 2em;
     font-weight: bold;
     color: #000000;
     margin-top: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .tooltip_text {
     background-color: #BCA9F5;

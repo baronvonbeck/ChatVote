@@ -12,8 +12,3 @@ body.light_theme {
 
     background: var(--background-color);
 }
-
-/* 
-body.light_theme .navbar_container {
-    background-color: var(--background-color);
-} */

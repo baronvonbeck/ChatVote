@@ -12,8 +12,3 @@ body.dark_theme {
 
     background: var(--background-color);
 }
-
-/* 
-body.dark_theme .navbar_container {
-    background-color: var(--background-color);
-} */

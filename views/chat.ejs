@@ -20,73 +20,74 @@
     </head>
 
     <body class="dark_theme">
-        <div class="navbar_container">
-            <ul class="navbar_ul">
-                <div class="navbar_left">
-                    <li class="navbar_li">
-                        <a href="/" class="navbar_link">Home</a>
-                    </li>
-                </div>
+        <div class="chat_page">
+            <div class="navbar_container">
+                <ul class="navbar_ul">
+                    <div class="navbar_left">
+                        <li class="navbar_li">
+                            <a href="/" class="navbar_link">Home</a>
+                        </li>
+                    </div>
 
-                <div class="navbar_center">
-                    <div id="room_link_id" class="tooltip">
-                        <div id="title_id" class="title_text">Chat</div>
-                        <div id="title_tooltip_id" class="tooltip_text">Copy chat link to clipboard</div>
+                    <div class="navbar_center">
+                        <div id="room_link_id" class="tooltip">
+                            <div id="title_id" class="title_text">Chat</div>
+                            <div id="title_tooltip_id" class="tooltip_text">Copy chat link to clipboard</div>
+                        </div>
+                    </div>
+                    
+                    <div class="navbar_right">
+                        <li class="navbar_dropdown_li">
+                            <a href="javascript:void(0)" class="navbar_dropbutton">About</a>
+                            <div class="navbar_dropdown_content">
+                                <a href="#" class="navbar_link">Chat Application</a>
+                                <a href="#" class="navbar_link">Me</a>
+                            </div>
+                        </li>
+                        <li class="navbar_dropdown_li">
+                            <a href="javascript:void(0)" class="navbar_dropbutton">Apps</a>
+                            <div class="navbar_dropdown_content">
+                                <a href="#" class="navbar_link">Chat</a>
+                                <a href="#" class="navbar_link">Vote</a>
+                            </div>
+                        </li>
+                        <li class="navbar_li">
+                            <div id="theme_toggler_id" class="theme_toggler" tabindex="0">
+                                <img id="theme_img_id" src="/img/theme-dark.png" alt="Switch to light theme" title="Go light!">
+                            </div>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+
+
+            <div id="username_change_container_id">
+                <div id="username_change_id" class="send_text_container">
+                    <p>Currently posting as: &nbsp;</p>
+                    <input id="username_text_id" class="send_text_input" type="text"/>
+                    <button id="username_send_button_id" class="send_button" type="button">Change username</button>
+                </div>
+            </div>
+
+            <div id="chatroom_container_id">
+                <div id="chatroom_id"></div>
+            </div>
+
+            <div id="fixed_bottom_footer_id">
+                <div id="message_send_container_id">
+                    <div id="message_send_id" class="send_text_container"> 
+                        <textarea id="message_text_id" class="send_text_input" type="text"></textarea>
+                        <button id="message_send_button_id" class="send_button" type="button">Send</button>
                     </div>
                 </div>
-                
-                <div class="navbar_right">
-                    <li class="navbar_dropdown_li">
-                        <a href="javascript:void(0)" class="navbar_dropbutton">About</a>
-                        <div class="navbar_dropdown_content">
-                            <a href="#" class="navbar_link">Chat Application</a>
-                            <a href="#" class="navbar_link">Me</a>
-                        </div>
-                    </li>
-                    <li class="navbar_dropdown_li">
-                        <a href="javascript:void(0)" class="navbar_dropbutton">Apps</a>
-                        <div class="navbar_dropdown_content">
-                            <a href="#" class="navbar_link">Chat</a>
-                            <a href="#" class="navbar_link">Vote</a>
-                        </div>
-                    </li>
-                    <li class="navbar_li">
-                        <div id="theme_toggler_id" class="theme_toggler" tabindex="0">
-                            <img id="theme_img_id" src="/img/theme-dark.png" alt="Switch to light theme" title="Go light!">
-                        </div>
-                    </li>
-                </div>
-            </ul>
-        </div>
 
-
-        <div id="username_change_container_id">
-            <div id="username_change_id" class="send_text_container">
-                <p>Currently posting as: &nbsp;</p>
-                <input id="username_text_id" class="send_text_input" type="text"/>
-                <button id="username_send_button_id" class="send_button" type="button">Change username</button>
-            </div>
-        </div>
-
-        <div id="chatroom_container_id">
-            <div id="chatroom_id"></div>
-        </div>
-
-        <div id="fixed_bottom_footer_id">
-            <div id="message_send_container_id">
-                <div id="message_send_id" class="send_text_container"> 
-                    <textarea id="message_text_id" class="send_text_input" type="text"></textarea>
-                    <button id="message_send_button_id" class="send_button" type="button">Send</button>
-                </div>
-            </div>
-
-            <div id="feedback_container_id">
-                <div id="feedback_id">
-                    <p id="feedback_text_id">Nobody is currently typing</p>
+                <div id="feedback_container_id">
+                    <div id="feedback_id">
+                        <p id="feedback_text_id">Nobody is currently typing</p>
+                    </div>
                 </div>
             </div>
         </div>
-
 
 
         <script>

@@ -76,7 +76,7 @@ h1 {
 .navbar_li a.navbar_link:hover, 
 .navbar_dropdown_li:hover .navbar_dropbutton,
 .navbar_li .theme_toggler:hover {
-    background-color: #5c0291;
+    background-color: var(--dropdown-menu-background-color);
 }
 
 .navbar_dropdown_li {

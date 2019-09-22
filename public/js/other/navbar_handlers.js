@@ -7,6 +7,7 @@ var NAVBAR_HANDLERS = new function() {
     };
 
     this.addNavbarEventListeners = function() {
+        NAVBAR_HANDLERS.initializeTheme();
 
         // theme toggler image
 	    NAVBAR_CONSTANTS.THEME_TOGGLER_EL.addEventListener(
@@ -81,12 +82,12 @@ var NAVBAR_CONTROLLER = new function() {
     }
 
     // sets a cookie. Taken from w3schools. Application uses cookies for:
-        // 1. username
+        // 1. current style
     this.setCookie = function(cname, cvalue) {  // exdays) {
         // var d = new Date();
         // d.setTime(d.getTime() + (exdays*24*60*60*1000));
         // var expires = "expires="+ d.toUTCString();
-        document.cookie = cname + "=" + cvalue + ";"; // + expires + ";path=/";
+        document.cookie = cname + "=" + cvalue + ";path=/"; // + expires + ";path=/";
     };
 
 

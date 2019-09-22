@@ -9,6 +9,4 @@ body.light_theme {
     --dropdown-menu-background-color: white;
     --dropdown-menu-background-hover-color: #b9b9b9;
     --dropdown-menu-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
-
-    background: var(--background-color);
 }

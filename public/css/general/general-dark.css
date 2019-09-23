@@ -15,35 +15,35 @@ body.dark_theme {
     background-color: var(--background-color);
 }
 
-body.dark_theme h1 {
-    color: var(--text-color);
-}
 
 /* Navbar background */
 body.dark_theme .navbar_container {
     background-color: var(--navbar-background-color);
 }
 
+
 /* Navbar text */
 body.dark_theme .navbar_li a, .navbar_dropbutton {
     color: var(--text-color);
 }
 
+
+/* Navbar element hover */
 body.dark_theme .navbar_li a.navbar_link:hover, 
 body.dark_theme .navbar_dropdown_li:hover .navbar_dropbutton,
 body.dark_theme .navbar_li .theme_toggler:hover {
     background-color: var(--navbar-hover-color);
 }
 
+
+/* Navbar dropdown */
 body.dark_theme .navbar_dropdown_content {
     background-color: var(--navbar-background-color);
     box-shadow: var(--dropdown-menu-shadow);
 }
-
 body.dark_theme .navbar_dropdown_content a.navbar_link {
     color: var(--text-color);
 }
-
 body.dark_theme .navbar_dropdown_content a.navbar_link:hover {
     background-color: var(--navbar-hover-color);
 }

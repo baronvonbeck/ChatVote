@@ -4,7 +4,6 @@ html {
     height: 100%;
     width: 100%;
 }
-
 body {
     margin: 0px;
     height: 100%;
@@ -17,6 +16,8 @@ h1 {
     margin: 0px;
 }
 
+
+/* Navbar */
 .navbar_container {
     position: fixed;
     width: 100%;
@@ -35,6 +36,8 @@ h1 {
     justify-content: space-between;
 }
 
+
+/* Navbar grouping */
 .navbar_ul .navbar_left {
     display: flex;
     text-align: left;
@@ -46,15 +49,14 @@ h1 {
 .navbar_ul .navbar_right {
     display: flex;
     text-align: right;
-    margin-right: 10px;
+    /* margin-right: 10px; */
 }
 
 
-
+/* Navbar item */
 .navbar_li {
     float: left;
 }
-
 .navbar_li a, .navbar_dropbutton {
     display: inline-block;
     text-align: center;
@@ -62,24 +64,23 @@ h1 {
     text-decoration: none;
 }
 
+
+/* Navbar dropdown */
 .navbar_dropdown_li {
     display: inline-block;
 }
-
 .navbar_dropdown_content {
     display: none;
     position: absolute;
     min-width: 160px;
     z-index: 2;
 }
-
 .navbar_dropdown_content a.navbar_link {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
     text-align: left;
 }
-
 .navbar_dropdown_li:hover .navbar_dropdown_content {
     display: block;
 }
@@ -113,10 +114,14 @@ h1 {
 .tooltip:hover .tooltip_text {
     visibility: visible;
 }
+
+
 /* Theme toggler */
 .theme_toggler {
     outline: 0;
     height: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 .theme_toggler img {
     outline: 0;

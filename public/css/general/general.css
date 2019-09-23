@@ -10,10 +10,23 @@ body {
     width: 100%;
     font-family: 'Fira Sans', sans-serif;
 }
-
+* {
+    outline: 0;
+}
 h1 {
     font-family: 'Fira Sans', sans-serif;
     margin: 0px;
+}
+
+
+/* Scrollbar handle */
+::-webkit-scrollbar-thumb {
+    background: #8a8a8a; 
+}
+
+/* Scrollbar Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #ac8b7c; 
 }
 
 
@@ -131,6 +144,6 @@ h1 {
     vertical-align: middle;
     margin-top: 5px;
 }
-.theme_toggler img:hover {
+.theme_toggler:hover {
     cursor: pointer;
 }

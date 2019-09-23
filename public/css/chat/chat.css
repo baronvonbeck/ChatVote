@@ -3,26 +3,14 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans');
 
 
-header {
-    text-align: center;
-    background-color: #8767e6;
-}
-
-
 /* Scrollbar width */
 ::-webkit-scrollbar {
     width: 10px;
 }
 
 /* Scrollbar handle */
-::-webkit-scrollbar-thumb {
-    background: #5f1bff; 
+::-webkit-scrollbar-thumb { 
     border-radius: 10px;
-}
-
-/* Scrollbar Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #400cb9; 
 }
 
 
@@ -38,11 +26,7 @@ header {
 .send_text_input {
     width: auto;
     outline: 0;
-    background-color: #dbd1fa;
     border: none;
-}
-.send_text_input:focus {
-    background-color: #b4adca;
 }
 .send_button {
     height: 100%;
@@ -50,6 +34,7 @@ header {
     white-space: nowrap;
     margin-left: 5px;
     cursor: pointer;
+    border: 0;
 }
 
 
@@ -63,8 +48,6 @@ header {
 }
 #username_change_id {
     display: flex;
-    
-    background-color: #8767e6;
     flex-wrap: nowrap;
 }
 #username_text_id {
@@ -80,7 +63,6 @@ header {
     position: relative;
     top: 90px;
     margin-bottom: 150px;
-    background-color: #BCA9F5;
     overflow: auto;
 }
 #chatroom_container_id .message_container {
@@ -100,7 +82,6 @@ p.new_user_message {
     white-space: pre-wrap;
     overflow-wrap: break-word;
     overflow-x: clip;
-    color: black;
 }
 .message_container .message_metadata {
     margin-bottom: 0px;
@@ -111,7 +92,6 @@ p.user_info {
     white-space: pre-wrap;
     overflow-wrap: break-word;
     overflow-x: clip;
-    color: #505050;
     font-weight: bold;
 }
 p.date_info {
@@ -120,7 +100,6 @@ p.date_info {
     white-space: pre-wrap;
     overflow-wrap: break-word;
     overflow-x: clip;
-    color: #505050;
     font-weight: bold;
     opacity: 0.6;
     font-size: 0.75em;
@@ -134,7 +113,6 @@ p.message {
     white-space: pre-wrap;
     overflow-wrap: break-word;
     overflow-x: clip;
-    color: black;
 }
 
 
@@ -144,7 +122,6 @@ p.message {
     bottom: 0;
     width: 100%;
     height: 150px;
-    background-color: #8767e6;
 }
 
 

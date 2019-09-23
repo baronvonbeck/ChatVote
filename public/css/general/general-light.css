@@ -34,6 +34,11 @@ body.light_theme .navbar_dropdown_li:hover .navbar_dropbutton,
 body.light_theme .navbar_li .theme_toggler:hover {
     background-color: var(--navbar-hover-color);
 }
+body.light_theme .navbar_li a.navbar_link:focus, 
+body.light_theme .navbar_dropdown_li .navbar_dropbutton:focus,
+body.light_theme .navbar_li .theme_toggler:focus {
+    background-color: var(--navbar-hover-color);
+}
 
 
 /* Navbar dropdown */
@@ -45,6 +50,9 @@ body.light_theme .navbar_dropdown_content a.navbar_link {
     color: var(--text-color);
 }
 body.light_theme .navbar_dropdown_content a.navbar_link:hover {
+    background-color: var(--navbar-hover-color);
+}
+body.light_theme .navbar_dropdown_content a.navbar_link:focus {
     background-color: var(--navbar-hover-color);
 }
 

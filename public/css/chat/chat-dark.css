@@ -1,1 +1,88 @@
 /* chat-dark.css - chat page dark stylings */
+
+
+/* Establish variables for dark theme, background dark grey */
+body.dark_theme {
+    --username-background-color: #141414;
+    
+    --input-text-color: #ffffff;
+    --input-background-color: #3b3b3b;
+    --input-focus-color: #525252;
+
+    
+    --button-text-color: var(--input-text-color);
+    --button-background-color: #000000;
+    --button-hover-color: #292929;
+
+    --message-background-color: #252525;
+    --message-user-color: #ffffff;
+    --message-info-color: #ffffff;
+    --message-text-color: #dfdfdf;
+
+    --footer-background-color: var(--username-background-color);
+    --footer-text-color: var(--input-text-color);
+}
+
+
+/* Text input fields */
+body.dark_theme .send_text_container p {
+    color: var(--input-text-color);
+}
+body.dark_theme .send_text_input {
+    color: var(--input-text-color);
+    background-color: var(--input-background-color);
+}
+body.dark_theme .send_text_input:hover {
+    background-color: var(--input-focus-color);
+}
+body.dark_theme .send_text_input:focus {
+    background-color: var(--input-focus-color);
+}
+
+
+/* Buttons */
+body.dark_theme .send_button {
+    color: var(--button-text-color);
+    background-color: var(--button-background-color);
+}
+body.dark_theme .send_button:hover {
+    background-color: var(--button-hover-color);
+}
+body.dark_theme .send_button:focus {
+    background-color: var(--button-hover-color);
+}
+
+/* Username display and change */
+#username_change_id {
+    background-color: var(--username-background-color);
+}
+
+
+/* Chatroom and messages */
+body.dark_theme #chatroom_container_id {
+    background-color: var(--message-background-color);
+}
+body.dark_theme p.new_user_message {
+    color: var(--message-text-color);
+}
+body.dark_theme p.user_info {
+    color: var(--message-user-color);
+}
+body.dark_theme p.date_info {
+    color: var(--message-info-color);
+}
+body.dark_theme p.message {
+    color: var(--message-text-color);
+}
+
+
+/* Fixed bottom container */
+body.dark_theme #fixed_bottom_footer_id {
+    background-color: var(--footer-background-color);
+}
+
+
+/* Feedback, when other users are typing */
+body.dark_theme #feedback_text_id {
+    color: var(--footer-text-color);
+}

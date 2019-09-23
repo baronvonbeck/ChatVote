@@ -4,9 +4,72 @@
 /* Establish variables for dark theme, background dark grey */
 body.dark_theme {
     --background-color: #252525;
-    --text-color: white;
-    --text-hover-color: #d6d6d6;
-    --dropdown-menu-background-color: #080808;
-    --dropdown-menu-background-hover-color: #848484;
-    --dropdown-menu-shadow: 0px 5px 10px 0px rgba(255, 255, 255, 0.1);
+    --navbar-background-color: #141414;
+    --navbar-hover-color: #353535;
+    --text-color: #ffffff;
+    --dropdown-menu-shadow: 0px 8px 10px 0px rgba(255, 255, 255, 0.4);
+
+    --tooltip-background-color: var(--navbar-background-color);
+    --tooltip-hover-color: var(--navbar-hover-color);
+
+    background-color: var(--background-color);
+}
+
+body.dark_theme h1 {
+    color: var(--text-color);
+}
+
+/* Navbar background */
+body.dark_theme .navbar_container {
+    background-color: var(--navbar-background-color);
+}
+
+/* Navbar text */
+body.dark_theme .navbar_li a, .navbar_dropbutton {
+    color: var(--text-color);
+}
+
+body.dark_theme .navbar_li a.navbar_link:hover, 
+body.dark_theme .navbar_dropdown_li:hover .navbar_dropbutton,
+body.dark_theme .navbar_li .theme_toggler:hover {
+    background-color: var(--navbar-hover-color);
+}
+
+body.dark_theme .navbar_dropdown_content {
+    background-color: var(--navbar-background-color);
+    box-shadow: var(--dropdown-menu-shadow);
+}
+
+body.dark_theme .navbar_dropdown_content a.navbar_link {
+    color: var(--text-color);
+}
+
+body.dark_theme .navbar_dropdown_content a.navbar_link:hover {
+    background-color: var(--navbar-hover-color);
+}
+
+
+/* Tooltip */
+body.dark_theme .title_text {
+    color: var(--text-color);
+}
+body.dark_theme .tooltip_text {
+    color: var(--text-color);
+    background-color: var(--tooltip-background-color);
+    box-shadow: var(--dropdown-menu-shadow);
+}
+body.dark_theme .tooltip:hover {
+    background-color: var(--tooltip-hover-color);
+}
+body.dark_theme .tooltip_text:hover {
+    background-color: var(--tooltip-hover-color);
+}
+body.dark_theme .tooltip:hover:active {
+    background-color: var(--tooltip-hover-color);
+}
+body.dark_theme .tooltip:hover:active .tooltip_text {
+    background-color: var(--tooltip-hover-color);
+}
+body.dark_theme .tooltip_text:hover:active {
+    background-color: var(--tooltip-hover-color);
 }

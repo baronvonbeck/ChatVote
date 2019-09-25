@@ -1,1 +1,88 @@
 /* chat-light.css - chat page light stylings */
+
+
+/* Establish variables for dark theme, background dark grey */
+body.light_theme {
+    --username-background-color: #c2c2c2;
+    
+    --input-text-color: #000000;
+    --input-background-color: #fafafa;
+    --input-focus-color: #ebe9e9;
+
+    
+    --button-text-color: var(--input-text-color);
+    --button-background-color: #ffffff;
+    --button-hover-color: #e0e0e0;
+
+    --message-background-color: #dfdfdf;
+    --message-user-color: #000000;
+    --message-info-color: #000000;
+    --message-text-color: #2e2e2e;
+
+    --footer-background-color: var(--username-background-color);
+    --footer-text-color: var(--input-text-color);
+}
+
+
+/* Text input fields */
+body.light_theme .send_text_container p {
+    color: var(--input-text-color);
+}
+body.light_theme .send_text_input {
+    color: var(--input-text-color);
+    background-color: var(--input-background-color);
+}
+body.light_theme .send_text_input:hover {
+    background-color: var(--input-focus-color);
+}
+body.light_theme .send_text_input:focus {
+    background-color: var(--input-focus-color);
+}
+
+
+/* Buttons */
+body.light_theme .send_button {
+    color: var(--button-text-color);
+    background-color: var(--button-background-color);
+}
+body.light_theme .send_button:hover {
+    background-color: var(--button-hover-color);
+}
+body.light_theme .send_button:focus {
+    background-color: var(--button-hover-color);
+}
+
+/* Username display and change */
+#username_change_id {
+    background-color: var(--username-background-color);
+}
+
+
+/* Chatroom and messages */
+body.light_theme #chatroom_container_id {
+    background-color: var(--message-background-color);
+}
+body.light_theme p.new_user_message {
+    color: var(--message-text-color);
+}
+body.light_theme p.user_info {
+    color: var(--message-user-color);
+}
+body.light_theme p.date_info {
+    color: var(--message-info-color);
+}
+body.light_theme p.message {
+    color: var(--message-text-color);
+}
+
+
+/* Fixed bottom container */
+body.light_theme #fixed_bottom_footer_id {
+    background-color: var(--footer-background-color);
+}
+
+
+/* Feedback, when other users are typing */
+body.light_theme #feedback_text_id {
+    color: var(--footer-text-color);
+}

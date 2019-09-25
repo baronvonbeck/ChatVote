@@ -6,6 +6,8 @@ var CHAT_SEARCH_HANDLERS = new function() {
 
     this.addAllEventListeners = function() {
 
+        NAVBAR_HANDLERS.addNavbarEventListeners();
+
         // Go to new chat room on click
         CHAT_SEARCH_CONSTANTS.CHAT_GOTO_BUTTON_EL.addEventListener(
             "click", function() {
@@ -29,7 +31,7 @@ var CHAT_SEARCH_HANDLERS = new function() {
             window.location.href = CHAT_SEARCH_CONSTANTS.HREF_LOCATION + 
                 newChatRoom;
         }
-    }
+    };
 
 
     // formats a string to remove all slashes

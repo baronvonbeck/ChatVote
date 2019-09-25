@@ -1,14 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Chat</title>
+        <meta http-equiv="Content-Type" const="text/html;charset=UTF-8"/>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-        
+        <link rel="stylesheet" type="text/css" href="/css/general/general.css">
+        <link rel="stylesheet" type="text/css" href="/css/general/general-dark.css">
+        <link rel="stylesheet" type="text/css" href="/css/general/general-light.css">
+        <!-- <link rel="stylesheet" type="text/css" href="/css/chat/chat-search.css">
+        <link rel="stylesheet" type="text/css" href="/css/chat/chat-search-dark.css">
+        <link rel="stylesheet" type="text/css" href="/css/chat/chat-search-light.css"> -->
+
+        <title>Chat</title>        
     </head>
-    <body>
+    <body class="dark_theme">
+        <div class="navbar_container">
+                <ul class="navbar_ul">
+                    <div class="navbar_left">
+                        <li class="navbar_li">
+                            <a href="/" class="navbar_link">Home</a>
+                        </li>
+                    </div>
+    
+                    <div class="navbar_center">
+                        <li class="navbar_li">
+                            <div id="title_id" class="title_text">Chat</div>
+                        </li>
+                    </div>
+                    
+                    <div class="navbar_right">
+                        <li class="navbar_dropdown_li">
+                            <a href="javascript:void(0)" class="navbar_dropbutton">About</a>
+                            <div class="navbar_dropdown_content">
+                                <a href="#" class="navbar_link">Chat Application</a>
+                                <a href="#" class="navbar_link">Me</a>
+                            </div>
+                        </li>
+                        <li class="navbar_dropdown_li">
+                            <a href="javascript:void(0)" class="navbar_dropbutton">Apps</a>
+                            <div class="navbar_dropdown_content">
+                                <a href="#" class="navbar_link">Chat</a>
+                                <a href="#" class="navbar_link">Vote</a>
+                            </div>
+                        </li>
+                        <li class="navbar_li">
+                            <div id="theme_toggler_id" class="theme_toggler" tabindex="0">
+                                <img id="theme_img_id" src="/img/theme-dark.png" alt="Switch to light theme" title="Go light!">
+                            </div>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+
         <h1>Search for Chat Room here</h1>
         
         <div id="chat_search_container_id">
@@ -16,6 +62,9 @@
             <button id="chat_goto_button_id" type="button">Go</button>
         </div>
 
+        <script src="/js/other/jquery.min.js"></script>
+        <script src="/js/other/navbar_constants.js"></script>
+        <script src="/js/other/navbar_handlers.js"></script>
         <script src="/js/chat/chat_search_constants.js"></script>
         <script src="/js/chat/chat_search_handlers.js"></script>
         <script src="/js/chat/chat_search.js"></script>

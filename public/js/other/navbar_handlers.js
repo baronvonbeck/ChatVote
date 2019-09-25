@@ -21,7 +21,7 @@ var NAVBAR_HANDLERS = new function() {
                     NAVBAR_HANDLERS.switchThemes();
                 }
             }, false);
-    }
+    };
 
 	// switch themes
 	this.switchThemes = function() {
@@ -69,8 +69,6 @@ var NAVBAR_CONTROLLER = new function() {
     this.readThemeFromCookieIfApplicable = function() {
         var cookieTheme = NAVBAR_CONTROLLER.getCookie(
             NAVBAR_CONSTANTS.THEME_COOKIE);
-
-        console.log(String(cookieTheme));
             
         if (cookieTheme == undefined || cookieTheme == null) {
             NAVBAR_CONTROLLER.setCookie(NAVBAR_CONSTANTS.THEME_COOKIE,
@@ -79,7 +77,7 @@ var NAVBAR_CONTROLLER = new function() {
         else if (cookieTheme != NAVBAR_CONSTANTS.DARK_THEME_CLASS) {
             this.switchThemes();
         }
-    }
+    };
 
     // sets a cookie. Taken from w3schools. Application uses cookies for:
         // 1. current style

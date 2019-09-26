@@ -1,0 +1,13 @@
+/* chat-search.css */
+
+
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
+
+
+#chat_search_container_id {
+    position: absolute;
+    top: 50vh;
+    width: 26vw;
+    left: 37vw;
+    background-color: #7e7e7e;
+}

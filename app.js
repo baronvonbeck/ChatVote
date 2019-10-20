@@ -34,7 +34,7 @@ if (cluster.isMaster) {
     app.use(express.urlencoded({ extended: true }));
 
     app.use('/', require('./routes/main'));
-    app.use('/api', require('./routes/api'));
+    // app.use('/api', require('./routes/api'));
     
 
     app.use(function(req, res, next){
@@ -54,6 +54,7 @@ if (cluster.isMaster) {
     });
 
     app.use('/chat/', require('./routes/chat_route')(server));
+    app.use('/vote/', require('./routes/vote_route'));
 }
 
 

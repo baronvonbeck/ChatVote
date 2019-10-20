@@ -9,7 +9,6 @@ body.dark_theme {
     --input-background-color: #3b3b3b;
     --input-focus-color: #525252;
 
-    
     --button-text-color: var(--input-text-color);
     --button-background-color: #000000;
     --button-hover-color: #292929;

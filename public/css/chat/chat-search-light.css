@@ -1,0 +1,38 @@
+/* chat-search-light.css - chat search specific light stylings */
+
+
+/* Establish variables for light theme, background dark grey */
+body.light_theme {
+    --input-text-color: #000000;
+    --input-background-color: #ffffff;
+    --input-focus-color: #f0f0f0;
+
+    --button-text-color: var(--input-text-color);
+    --button-background-color: #ffffff;
+    --button-hover-color: #f0f0f0;
+}
+
+
+/* Text input fields */
+body.light_theme .send_text_input {
+    color: var(--input-text-color);
+    background-color: var(--input-background-color);
+}
+body.light_theme .send_text_input:hover {
+    background-color: var(--input-focus-color);
+}
+body.light_theme .send_text_input:focus {
+    background-color: var(--input-focus-color);
+}
+
+/* Buttons */
+body.light_theme .send_button {
+    color: var(--button-text-color);
+    background-color: var(--button-background-color);
+}
+body.light_theme .send_button:hover {
+    background-color: var(--button-hover-color);
+}
+body.light_theme .send_button:focus {
+    background-color: var(--button-hover-color);
+}

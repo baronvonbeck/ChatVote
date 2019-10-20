@@ -1,7 +1,7 @@
 /* chat-light.css - chat page light stylings */
 
 
-/* Establish variables for dark theme, background dark grey */
+/* Establish variables for light theme, background light grey */
 body.light_theme {
     --username-background-color: #c2c2c2;
     
@@ -9,7 +9,6 @@ body.light_theme {
     --input-background-color: #fafafa;
     --input-focus-color: #ebe9e9;
 
-    
     --button-text-color: var(--input-text-color);
     --button-background-color: #ffffff;
     --button-hover-color: #e0e0e0;

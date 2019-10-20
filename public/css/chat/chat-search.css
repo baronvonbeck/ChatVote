@@ -6,8 +6,25 @@
 
 #chat_search_container_id {
     position: absolute;
+    display: inline-flex;
     top: 50vh;
-    width: 26vw;
-    left: 37vw;
-    background-color: #7e7e7e;
+    width: 40vw;
+    left: 30vw;
+    height: 30px;
+}
+.send_text_input {
+    width: 100%;
+    font-family: 'Fira Sans', sans-serif;
+    margin-right: 10px;
+    outline: 0;
+    border: none;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.send_button {
+    height: 100%;
+    width: 40px;
+    white-space: nowrap;
+    cursor: pointer;
+    border: 0;
 }

@@ -27,6 +27,8 @@
     width: auto;
     outline: 0;
     border: none;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 .send_button {
     height: 100%;
@@ -145,6 +147,7 @@ p.message {
     height: auto;
     font-family: 'Fira Sans', sans-serif;
     resize: none;
+    padding: 5px;
 }
 
 

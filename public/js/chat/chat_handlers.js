@@ -68,6 +68,7 @@ var CHAT_HANDLERS = new function() {
         CHAT_CONSTANTS.MESSAGE_SEND_BUTTON_EL.addEventListener(
             "click", function() {
                 CHAT_HANDLERS.socketEmitMessage();
+                CHAT_CONSTANTS.MESSAGE_SEND_BUTTON_EL.blur();
             }, false);
         // Emit message on enter on text field
         CHAT_CONSTANTS.MESSAGE_TEXT_EL.addEventListener(
@@ -103,7 +104,8 @@ var CHAT_HANDLERS = new function() {
                 CHAT_HANDLERS.socketEmitUsernameChange(
                     CHAT_HANDLERS.formatString(
                         CHAT_CONSTANTS.USERNAME_TEXT_EL.value));
-
+                
+                CHAT_CONSTANTS.USERNAME_SEND_BUTTON_EL.blur();
             }, false);
         // Emit a username change on enter on text field
         CHAT_CONSTANTS.USERNAME_TEXT_EL.addEventListener(
@@ -114,6 +116,8 @@ var CHAT_HANDLERS = new function() {
                     CHAT_HANDLERS.socketEmitUsernameChange(
                         CHAT_HANDLERS.formatString(
                             CHAT_CONSTANTS.USERNAME_TEXT_EL.value));
+                    
+                    CHAT_CONSTANTS.USERNAME_TEXT_EL.blur();
                 }
             }, false);
         // Username field should always display current username; if it has
@@ -305,7 +309,6 @@ var CHAT_HANDLERS = new function() {
 
     // copies passed in string to clipboard
     this.copyTextToClipboard = function(textToCopy) {
-        console.log("test");
         let t = document.createElement("textarea");
         t.setAttribute("type", "hidden");
         t.textContent = textToCopy;

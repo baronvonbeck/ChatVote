@@ -6,7 +6,7 @@
     "ejs": "latest",
     "express": "latest",
     "request": "latest",
-    "socket.io": "^2.2.0"
+    "socket.io": "^2.5.0"
   },
   "scripts": {
     "start": "node app.js"
